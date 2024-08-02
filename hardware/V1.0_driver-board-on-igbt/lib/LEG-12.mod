@@ -1,0 +1,55 @@
+PCBNEW-LibModule-V1  Fri 08 May 2015 02:36:40 PM CEST
+# encoding utf-8
+Units mm
+$INDEX
+LEG-12
+$EndINDEX
+$MODULE LEG-12
+Po 0 0 0 15 554CADCD 00000000 ~~
+Li LEG-12
+Sc 0
+AR 
+Op 0 0 0
+T0 0 2.5 1 1 0 0.15 N V 21 N "LEG-12"
+T1 0 -2.5 1 1 0 0.15 N V 21 N "VAL**"
+DS 10 -8 10 8 0.15 21
+DS 10 8 -11 8 0.15 21
+DS -11 8 -11 -8 0.15 21
+DS -11 -8 10 -8 0.15 21
+$PAD
+Sh "1" C 1.8 1.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -6.1 -6
+$EndPAD
+$PAD
+Sh "5" C 2.4 2.4 0 0 0
+Dr 1.2 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 6.1 -6
+$EndPAD
+$PAD
+Sh "4" C 2.4 2.4 0 0 0
+Dr 1.2 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 6.1 6
+$EndPAD
+$PAD
+Sh "2" C 1.8 1.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -6.1 6
+$EndPAD
+$PAD
+Sh "3" C 2.4 2.4 0 0 0
+Dr 1.2 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -8.1 0
+$EndPAD
+$EndMODULE LEG-12
+$EndLIBRARY

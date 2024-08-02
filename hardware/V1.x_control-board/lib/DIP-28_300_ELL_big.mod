@@ -1,0 +1,227 @@
+PCBNEW-LibModule-V1  Mon 16 Feb 2015 08:03:18 PM CET
+# encoding utf-8
+Units mm
+$INDEX
+DIP-28__300_ELL_big
+$EndINDEX
+$MODULE DIP-28__300_ELL_big
+Po 0 0 0 15 54E23EE2 00000000 ~~
+Li DIP-28__300_ELL_big
+Cd 28 pins DIL package, elliptical pads, width 300mil
+Kw DIL
+Sc 0
+AR 
+Op 0 0 0
+T0 -11.43 0 1.524 1.143 0 0.3048 N V 21 N "U***"
+T1 6.985 0 1.524 1.143 0 0.3048 N V 21 N "DIP-28_300_ELL"
+DS -19.05 -2.54 19.05 -2.54 0.381 21
+DS 19.05 -2.54 19.05 2.54 0.381 21
+DS 19.05 2.54 -19.05 2.54 0.381 21
+DS -19.05 2.54 -19.05 -2.54 0.381 21
+DS -19.05 -1.27 -17.78 -1.27 0.381 21
+DS -17.78 -1.27 -17.78 1.27 0.381 21
+DS -17.78 1.27 -19.05 1.27 0.381 21
+$PAD
+Sh "2" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -13.97 3.81
+$EndPAD
+$PAD
+Sh "3" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -11.43 3.81
+$EndPAD
+$PAD
+Sh "4" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -8.89 3.81
+$EndPAD
+$PAD
+Sh "5" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -6.35 3.81
+$EndPAD
+$PAD
+Sh "6" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -3.81 3.81
+$EndPAD
+$PAD
+Sh "7" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -1.27 3.81
+$EndPAD
+$PAD
+Sh "8" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 1.27 3.81
+$EndPAD
+$PAD
+Sh "9" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 3.81 3.81
+$EndPAD
+$PAD
+Sh "10" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 6.35 3.81
+$EndPAD
+$PAD
+Sh "11" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 8.89 3.81
+$EndPAD
+$PAD
+Sh "12" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 11.43 3.81
+$EndPAD
+$PAD
+Sh "13" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 13.97 3.81
+$EndPAD
+$PAD
+Sh "14" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 16.51 3.81
+$EndPAD
+$PAD
+Sh "1" R 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -16.51 3.81
+$EndPAD
+$PAD
+Sh "15" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 16.51 -3.81
+$EndPAD
+$PAD
+Sh "16" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 13.97 -3.81
+$EndPAD
+$PAD
+Sh "17" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 11.43 -3.81
+$EndPAD
+$PAD
+Sh "18" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 8.89 -3.81
+$EndPAD
+$PAD
+Sh "19" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 6.35 -3.81
+$EndPAD
+$PAD
+Sh "20" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 3.81 -3.81
+$EndPAD
+$PAD
+Sh "21" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 1.27 -3.81
+$EndPAD
+$PAD
+Sh "22" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -1.27 -3.81
+$EndPAD
+$PAD
+Sh "23" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -3.81 -3.81
+$EndPAD
+$PAD
+Sh "24" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -6.35 -3.81
+$EndPAD
+$PAD
+Sh "25" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -8.89 -3.81
+$EndPAD
+$PAD
+Sh "26" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -11.43 -3.81
+$EndPAD
+$PAD
+Sh "27" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -13.97 -3.81
+$EndPAD
+$PAD
+Sh "28" O 1.8 2.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -16.51 -3.81
+$EndPAD
+$SHAPE3D
+Na "dil/dil_28-w300.wrl"
+Sc 1 1 1
+Of 0 0 0
+Ro 0 0 0
+$EndSHAPE3D
+$EndMODULE DIP-28__300_ELL_big
+$EndLIBRARY
