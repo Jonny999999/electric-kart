@@ -32,3 +32,6 @@ talk.pdf
 *.blg
 *.idx
 
+#kicad
+**/*-backups/*.zip
+
