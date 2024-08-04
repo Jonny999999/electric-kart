@@ -34,4 +34,6 @@ talk.pdf
 
 #kicad
 **/*-backups/*.zip
+\#auto_saved_files\#
+*.lck
 
