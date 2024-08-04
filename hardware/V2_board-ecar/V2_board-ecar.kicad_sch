@@ -6322,6 +6322,16 @@
 	)
 	(wire
 		(pts
+			(xy 330.2 29.21) (xy 330.2 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c220f4f-b49a-49ee-99bf-2a1ef33cc05b")
+	)
+	(wire
+		(pts
 			(xy 138.43 135.89) (xy 147.32 135.89)
 		)
 		(stroke
@@ -6549,6 +6559,16 @@
 			(type default)
 		)
 		(uuid "20b4e2ad-9bb5-45a0-99dc-7df1868b5644")
+	)
+	(wire
+		(pts
+			(xy 327.66 27.94) (xy 327.66 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2116197b-5771-4c65-8a8d-72c23a775a63")
 	)
 	(wire
 		(pts
@@ -7312,6 +7332,16 @@
 	)
 	(wire
 		(pts
+			(xy 325.12 27.94) (xy 325.12 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5cb76c3c-1c2f-4ee8-9197-95767ec4c47a")
+	)
+	(wire
+		(pts
 			(xy 34.29 215.9) (xy 30.48 215.9)
 		)
 		(stroke
@@ -7829,6 +7859,16 @@
 			(type default)
 		)
 		(uuid "7ff6f519-109c-49c6-949b-f83d693cf15c")
+	)
+	(wire
+		(pts
+			(xy 340.36 29.21) (xy 330.2 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "804b91cf-9738-4d82-94c3-9ff63e0a85b9")
 	)
 	(wire
 		(pts
@@ -9052,6 +9092,16 @@
 	)
 	(wire
 		(pts
+			(xy 340.36 34.29) (xy 340.36 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dcf50e6f-b483-4936-b498-5155bafcdaa0")
+	)
+	(wire
+		(pts
 			(xy 300.99 109.22) (xy 300.99 137.16)
 		)
 		(stroke
@@ -9645,7 +9695,7 @@
 	)
 	(text "Mosfet out (cooling Fan)"
 		(exclude_from_sim no)
-		(at 307.594 24.638 0)
+		(at 294.132 24.384 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -12764,6 +12814,72 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 340.36 34.29 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "47c2782f-b6c2-435b-b14f-e5ba4166b5d0")
+		(property "Reference" "#PWR045"
+			(at 340.36 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 336.804 36.068 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 340.36 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 340.36 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 340.36 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d4b0e8d4-1697-4f53-88bb-a2595430ccd3")
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 146.05 116.84 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15406,6 +15522,78 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "D11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x03")
+		(at 327.66 22.86 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "809fb202-fa21-4d89-a6c8-5eae22a7ca71")
+		(property "Reference" "J24"
+			(at 332.74 21.5899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "GND-supp, Diode, Mosfet (fan)"
+			(at 320.802 19.558 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-3_P5.08mm"
+			(at 327.66 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 327.66 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 327.66 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "69225d38-bc57-4329-a7b5-023cb236ef7a")
+		)
+		(pin "3"
+			(uuid "86192796-d190-4df0-aac9-3b0cf1a32c60")
+		)
+		(pin "2"
+			(uuid "33c06c1f-1a3b-4c57-8a19-d4c435adc06a")
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "J24")
 					(unit 1)
 				)
 			)
@@ -18238,75 +18426,6 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 325.12 26.67 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ca38082c-a72d-4cd2-9f5a-2b638a6d06c2")
-		(property "Reference" "J16"
-			(at 322.326 27.686 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Mosfet Out (Diode, Mosfet)"
-			(at 332.994 23.622 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
-			(at 325.12 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 325.12 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 325.12 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "437d5c96-fe82-4caa-858d-d028cb01e989")
-		)
-		(pin "1"
-			(uuid "fd5fe069-f029-4d9d-817d-e4a9ec938d46")
-		)
-		(instances
-			(project "V2_board-ecar"
-				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
-					(reference "J16")
 					(unit 1)
 				)
 			)
