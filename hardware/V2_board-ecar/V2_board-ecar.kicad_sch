@@ -2024,6 +2024,88 @@
 				)
 			)
 		)
+		(symbol "Mechanical:MountingHole"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole without connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+		)
 		(symbol "Optocoupler_AKL:LTV-817"
 			(pin_names
 				(offset 1.016)
@@ -5825,12 +5907,6 @@
 		(uuid "4b31a8e3-b23c-4dc9-ad5a-1a0977e48bf8")
 	)
 	(junction
-		(at 325.12 46.99)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4ca53ee8-c2bf-415e-a1f6-2e106b016b79")
-	)
-	(junction
 		(at 31.75 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5855,6 +5931,12 @@
 		(uuid "5d85d733-5390-4b48-9b8f-9dda8c6cdd27")
 	)
 	(junction
+		(at 320.04 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "63bae3ff-9d32-4321-8327-7c5fe8752448")
+	)
+	(junction
 		(at 90.17 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5877,12 +5959,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7151b8f1-61f0-4edd-bd46-b6adc068ef24")
-	)
-	(junction
-		(at 325.12 43.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "71ca0b39-70d1-4306-907a-a264bd4cbd1e")
 	)
 	(junction
 		(at 45.72 247.65)
@@ -6214,16 +6290,6 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 35.56) (xy 302.26 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0971ecc7-5f22-446e-be75-7c4757720d58")
-	)
-	(wire
-		(pts
 			(xy 30.48 229.87) (xy 33.02 229.87)
 		)
 		(stroke
@@ -6274,7 +6340,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 36.83) (xy 325.12 43.18)
+			(xy 320.04 31.75) (xy 320.04 38.1)
 		)
 		(stroke
 			(width 0)
@@ -6291,6 +6357,16 @@
 			(type default)
 		)
 		(uuid "0e60e9c2-d62e-45b8-9b92-8355e42b7416")
+	)
+	(wire
+		(pts
+			(xy 320.04 31.75) (xy 325.12 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f5f6ace-5dea-4b1f-8dcb-80acf42da112")
 	)
 	(wire
 		(pts
@@ -6614,7 +6690,7 @@
 	)
 	(wire
 		(pts
-			(xy 397.51 59.69) (xy 397.51 40.64)
+			(xy 403.86 59.69) (xy 403.86 40.64)
 		)
 		(stroke
 			(width 0)
@@ -6774,16 +6850,6 @@
 	)
 	(wire
 		(pts
-			(xy 335.28 39.37) (xy 335.28 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "33abcc25-4201-4c65-b9ee-1f2284f379b0")
-	)
-	(wire
-		(pts
 			(xy 88.9 31.75) (xy 88.9 36.83)
 		)
 		(stroke
@@ -6831,16 +6897,6 @@
 			(type default)
 		)
 		(uuid "35b6cd6b-e9c1-416b-aa47-40b7266cffbd")
-	)
-	(wire
-		(pts
-			(xy 116.84 27.94) (xy 116.84 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35e7913b-1c53-4119-80bb-02f19140bb7a")
 	)
 	(wire
 		(pts
@@ -6984,16 +7040,6 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 43.18) (xy 317.5 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "42b13b4e-5e40-4c4b-8efe-b975429eb334")
-	)
-	(wire
-		(pts
 			(xy 252.73 53.34) (xy 267.97 53.34)
 		)
 		(stroke
@@ -7104,13 +7150,13 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 35.56) (xy 307.34 43.18)
+			(xy 323.85 38.1) (xy 320.04 38.1)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4df29600-ee5e-49c2-95ee-213a4225cc4c")
+		(uuid "4e4ac4d2-5d55-40f3-9265-1d88ca120150")
 	)
 	(wire
 		(pts
@@ -7194,7 +7240,7 @@
 	)
 	(wire
 		(pts
-			(xy 397.51 40.64) (xy 388.62 40.64)
+			(xy 403.86 40.64) (xy 388.62 40.64)
 		)
 		(stroke
 			(width 0)
@@ -7454,16 +7500,6 @@
 	)
 	(wire
 		(pts
-			(xy 327.66 36.83) (xy 327.66 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a19582b-bf81-4526-81c7-6a737732779e")
-	)
-	(wire
-		(pts
 			(xy 170.18 114.3) (xy 170.18 116.84)
 		)
 		(stroke
@@ -7481,6 +7517,16 @@
 			(type default)
 		)
 		(uuid "6b2eef82-8f13-4cb5-a3c6-a36f96c23165")
+	)
+	(wire
+		(pts
+			(xy 125.73 31.75) (xy 132.08 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c19f93c-51cc-4a57-bfcc-97f7934e8e0e")
 	)
 	(wire
 		(pts
@@ -7521,16 +7567,6 @@
 			(type default)
 		)
 		(uuid "700f7a0e-5654-4736-880d-dbbef1c1f5e9")
-	)
-	(wire
-		(pts
-			(xy 327.66 39.37) (xy 335.28 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "713a6ebf-01cc-4232-a9e7-cd25da489c47")
 	)
 	(wire
 		(pts
@@ -7754,6 +7790,16 @@
 	)
 	(wire
 		(pts
+			(xy 116.84 31.75) (xy 118.11 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80f4374a-014d-458e-a8bc-076e711ea91f")
+	)
+	(wire
+		(pts
 			(xy 331.47 111.76) (xy 330.2 111.76)
 		)
 		(stroke
@@ -7851,6 +7897,16 @@
 			(type default)
 		)
 		(uuid "88704936-dd8b-49fb-a404-8aa8630d894b")
+	)
+	(wire
+		(pts
+			(xy 320.04 43.18) (xy 325.12 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8882eb14-157c-47b1-a9f9-2f1971ef985c")
 	)
 	(wire
 		(pts
@@ -8034,6 +8090,16 @@
 	)
 	(wire
 		(pts
+			(xy 325.12 53.34) (xy 325.12 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a3706df-eb82-4bff-b18b-bce138ad0c5e")
+	)
+	(wire
+		(pts
 			(xy 25.4 121.92) (xy 25.4 124.46)
 		)
 		(stroke
@@ -8174,7 +8240,7 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 46.99) (xy 325.12 59.69)
+			(xy 325.12 43.18) (xy 325.12 45.72)
 		)
 		(stroke
 			(width 0)
@@ -8211,6 +8277,16 @@
 			(type default)
 		)
 		(uuid "ab1bbfeb-24d8-4b2c-97ae-a253f0952888")
+	)
+	(wire
+		(pts
+			(xy 334.01 38.1) (xy 331.47 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab39cce6-db12-4357-ab6e-476ef906f26c")
 	)
 	(wire
 		(pts
@@ -8524,6 +8600,16 @@
 	)
 	(wire
 		(pts
+			(xy 320.04 38.1) (xy 320.04 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be55a8d9-1e2d-4334-b9ee-d00b8302912d")
+	)
+	(wire
+		(pts
 			(xy 300.99 137.16) (xy 306.07 137.16)
 		)
 		(stroke
@@ -8734,6 +8820,16 @@
 	)
 	(wire
 		(pts
+			(xy 403.86 59.69) (xy 400.05 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc36af97-9f5a-4374-bfae-e299d040ebfb")
+	)
+	(wire
+		(pts
 			(xy 55.88 31.75) (xy 62.23 31.75)
 		)
 		(stroke
@@ -8771,6 +8867,16 @@
 			(type default)
 		)
 		(uuid "d12eefaa-6da1-4c54-8f24-b82baeea29a4")
+	)
+	(wire
+		(pts
+			(xy 334.01 31.75) (xy 327.66 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d25a53b3-ed85-4942-97ac-b91a7a7ee1ae")
 	)
 	(wire
 		(pts
@@ -8894,16 +9000,6 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 46.99) (xy 317.5 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dab3c8e1-ea2a-4521-bd95-e37c414a8052")
-	)
-	(wire
-		(pts
 			(xy 300.99 109.22) (xy 300.99 137.16)
 		)
 		(stroke
@@ -9024,13 +9120,13 @@
 	)
 	(wire
 		(pts
-			(xy 325.12 43.18) (xy 325.12 46.99)
+			(xy 334.01 38.1) (xy 334.01 31.75)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ea15aa98-0327-4107-89dc-14f0af827d2d")
+		(uuid "eac1ac1b-0682-48d9-9a01-b906711ee903")
 	)
 	(wire
 		(pts
@@ -9154,7 +9250,7 @@
 	)
 	(wire
 		(pts
-			(xy 388.62 59.69) (xy 397.51 59.69)
+			(xy 388.62 59.69) (xy 392.43 59.69)
 		)
 		(stroke
 			(width 0)
@@ -9181,6 +9277,16 @@
 			(type default)
 		)
 		(uuid "f4807604-95fe-446f-89b0-9682b9a4c235")
+	)
+	(wire
+		(pts
+			(xy 132.08 27.94) (xy 132.08 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7be72a7-1cb6-4a8e-9c1a-5bc2fe344dd0")
 	)
 	(wire
 		(pts
@@ -9303,16 +9409,6 @@
 			)
 		)
 		(uuid "00f11e52-c99f-4ca0-85cd-fa328a2569ab")
-	)
-	(text "populate diodes depending \non where load is connected"
-		(exclude_from_sim no)
-		(at 306.07 48.768 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "09f36204-e8a2-44d0-92bf-609ec0ac3d6d")
 	)
 	(text "7-40V"
 		(exclude_from_sim no)
@@ -10458,16 +10554,35 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+BATT")
-		(at 302.26 35.56 0)
+		(lib_id "Mechanical:MountingHole")
+		(at 27.94 270.51 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
+		(exclude_from_sim yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
-		(uuid "0d432943-3057-4bec-b2f7-10689ec33dbb")
-		(property "Reference" "#PWR045"
-			(at 302.26 39.37 0)
+		(fields_autoplaced yes)
+		(uuid "0c72ab5c-a91e-46eb-9582-066462b79d12")
+		(property "Reference" "H2"
+			(at 30.48 269.2399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 30.48 271.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_5.3mm_M5"
+			(at 27.94 270.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10475,16 +10590,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+BATT"
-			(at 302.26 32.004 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 302.26 35.56 0)
+		(property "Datasheet" "~"
+			(at 27.94 270.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10492,31 +10599,19 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 302.26 35.56 0)
+		(property "Description" "Mounting Hole without connection"
+			(at 27.94 270.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+BATT\""
-			(at 302.26 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "374a88a0-2845-4c8c-9b58-494e66e71449")
 		)
 		(instances
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
-					(reference "#PWR045")
+					(reference "H2")
 					(unit 1)
 				)
 			)
@@ -10985,7 +11080,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 321.31 43.18 0)
+		(at 327.66 38.1 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10993,7 +11088,7 @@
 		(dnp no)
 		(uuid "1c617275-4952-4b0d-8690-f216147c4721")
 		(property "Reference" "D9"
-			(at 321.31 45.466 0)
+			(at 327.66 35.814 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11001,7 +11096,7 @@
 			)
 		)
 		(property "Value" "D"
-			(at 321.31 39.37 0)
+			(at 327.66 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11010,7 +11105,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
-			(at 321.31 43.18 0)
+			(at 327.66 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11019,7 +11114,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 321.31 43.18 0)
+			(at 327.66 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11028,7 +11123,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 321.31 43.18 0)
+			(at 327.66 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11037,7 +11132,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 321.31 43.18 0)
+			(at 327.66 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11046,7 +11141,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 321.31 43.18 0)
+			(at 327.66 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11071,7 +11166,7 @@
 	)
 	(symbol
 		(lib_id "power:+24V")
-		(at 116.84 27.94 0)
+		(at 132.08 27.94 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11080,7 +11175,7 @@
 		(fields_autoplaced yes)
 		(uuid "1e498b91-26f4-45bd-a5ce-43abf786d87a")
 		(property "Reference" "#PWR022"
-			(at 116.84 31.75 0)
+			(at 132.08 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11089,7 +11184,7 @@
 			)
 		)
 		(property "Value" "+24V filtered"
-			(at 116.84 22.86 0)
+			(at 132.08 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11097,7 +11192,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 116.84 27.94 0)
+			(at 132.08 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11106,7 +11201,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 116.84 27.94 0)
+			(at 132.08 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11115,7 +11210,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 116.84 27.94 0)
+			(at 132.08 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11403,71 +11498,6 @@
 	)
 	(symbol
 		(lib_id "power:+24V")
-		(at 335.28 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "231c98b0-fe7e-4ecd-a43c-caa7cf9aa38b")
-		(property "Reference" "#PWR056"
-			(at 335.28 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+24V filtered"
-			(at 335.28 32.766 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 335.28 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 335.28 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 335.28 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ab100e5b-d2d5-4a8e-b3c5-5a94c3e3da7f")
-		)
-		(instances
-			(project "V2_board-ecar"
-				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
-					(reference "#PWR056")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+24V")
 		(at 217.17 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11527,6 +11557,73 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 121.92 31.75 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "24775950-285a-4fad-8fbf-1853850239dd")
+		(property "Reference" "F2"
+			(at 121.92 26.924 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500mA"
+			(at 121.92 28.956 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Stelvio-Kontek_PTF78_Horizontal_Open"
+			(at 121.92 33.528 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 121.92 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fuse"
+			(at 121.92 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "12494ef1-f360-4fe4-9138-d5417f163e7f")
+		)
+		(pin "1"
+			(uuid "7e75465a-2c66-40d9-a41c-a19401aa0216")
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "F2")
 					(unit 1)
 				)
 			)
@@ -11597,6 +11694,70 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "D5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 27.94 275.59 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "288529c4-3e1e-49c7-a91f-a9cdecdcf764")
+		(property "Reference" "H3"
+			(at 30.48 274.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 30.48 276.8599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_5.3mm_M5"
+			(at 27.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 27.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 27.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "H3")
 					(unit 1)
 				)
 			)
@@ -12600,6 +12761,73 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Fuse")
+		(at 396.24 59.69 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "510be6ca-5b27-48db-9300-14fc8434bf59")
+		(property "Reference" "F3"
+			(at 396.24 54.864 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500mA"
+			(at 396.24 56.896 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Stelvio-Kontek_PTF78_Horizontal_Open"
+			(at 396.24 61.468 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 396.24 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fuse"
+			(at 396.24 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c72e3bdc-6500-44fa-ac05-7f62d1804cb4")
+		)
+		(pin "1"
+			(uuid "020ebec3-c23d-4073-91c6-22f27ddf46a0")
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "F3")
 					(unit 1)
 				)
 			)
@@ -13823,92 +14051,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D")
-		(at 321.31 46.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "611af871-e3b0-4af6-b315-19a8d052a30b")
-		(property "Reference" "D10"
-			(at 321.31 49.276 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "D"
-			(at 321.31 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
-			(at 321.31 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 321.31 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Diode"
-			(at 321.31 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 321.31 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 321.31 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "edd7c93b-5379-4d6f-9ad5-bd349710f640")
-		)
-		(pin "2"
-			(uuid "d1ccc0fc-bacd-438e-b494-b9c91fe0a724")
-		)
-		(instances
-			(project "V2_board-ecar"
-				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
-					(reference "D10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+BATT")
 		(at 77.47 219.71 0)
 		(unit 1)
@@ -14036,6 +14178,70 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 27.94 280.67 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "65326c24-de6d-412e-a9d6-8b514722a11b")
+		(property "Reference" "H4"
+			(at 30.48 279.3999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 30.48 281.9399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_5.3mm_M5"
+			(at 27.94 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 27.94 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 27.94 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -14979,71 +15185,6 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "F1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+24V")
-		(at 307.34 35.56 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7bb1515a-df69-4fb6-a1b5-3747b7759114")
-		(property "Reference" "#PWR047"
-			(at 307.34 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+24V filtered"
-			(at 307.34 28.702 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 307.34 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 307.34 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 307.34 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bffe3e50-6148-4f68-9942-812c094ea167")
-		)
-		(instances
-			(project "V2_board-ecar"
-				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
-					(reference "#PWR047")
 					(unit 1)
 				)
 			)
@@ -17977,7 +18118,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 325.12 31.75 90)
+		(at 325.12 26.67 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17985,7 +18126,7 @@
 		(dnp no)
 		(uuid "ca38082c-a72d-4cd2-9f5a-2b638a6d06c2")
 		(property "Reference" "J16"
-			(at 322.326 32.766 0)
+			(at 322.326 27.686 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17993,8 +18134,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Mosfet Out (Fan)"
-			(at 332.994 28.702 90)
+		(property "Value" "Mosfet Out (Diode, Mosfet)"
+			(at 332.994 23.622 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18003,7 +18144,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
-			(at 325.12 31.75 0)
+			(at 325.12 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18012,7 +18153,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 325.12 31.75 0)
+			(at 325.12 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18021,7 +18162,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 325.12 31.75 0)
+			(at 325.12 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18511,6 +18652,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:Fuse")
+		(at 325.12 49.53 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d0e29108-78e9-4b2a-84c4-3180dacac76b")
+		(property "Reference" "F4"
+			(at 320.294 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500mA"
+			(at 322.326 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Stelvio-Kontek_PTF78_Horizontal_Open"
+			(at 326.898 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 325.12 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fuse"
+			(at 325.12 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "195b483c-0b79-4a54-b6a9-2621887495b8")
+		)
+		(pin "1"
+			(uuid "d8a34cc8-1c5b-4cff-aa9f-3706296961bc")
+		)
+		(instances
+			(project "V2_board-ecar"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "F4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
 		(at 53.34 229.87 0)
 		(mirror x)
@@ -18837,6 +19045,70 @@
 			(project "V2_board-ecar"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "L1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 27.94 265.43 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d8a036f5-3e9f-4f27-88f1-4759eac97ff9")
+		(property "Reference" "H1"
+			(at 30.48 264.1599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 30.48 266.6999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_5.3mm_M5"
+			(at 27.94 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 27.94 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 27.94 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project ""
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "H1")
 					(unit 1)
 				)
 			)

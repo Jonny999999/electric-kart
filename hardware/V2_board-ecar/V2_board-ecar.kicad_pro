@@ -116,7 +116,7 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.1,
+        "min_clearance": 0.07,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 2.0,
         "min_hole_clearance": 0.25,
@@ -179,6 +179,10 @@
       ],
       "track_widths": [
         0.0,
+        0.75,
+        1.0,
+        1.7,
+        2.0,
         3.0
       ],
       "tuning_pattern_settings": {
@@ -482,7 +486,7 @@
       "netlist": "",
       "plot": "",
       "pos_files": "",
-      "specctra_dsn": "",
+      "specctra_dsn": "tmp/V2_board-ecar.dsn",
       "step": "",
       "svg": "",
       "vrml": ""
