@@ -9844,12 +9844,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 215.392 125.73 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -9909,12 +9910,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical"
 			(at 49.53 179.07 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -10064,7 +10066,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0922_L20.0mm_D9.0mm_P25.40mm_Horizontal"
 			(at 46.99 39.878 90)
 			(effects
 				(font
@@ -10263,12 +10265,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 318.008 198.12 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -10330,7 +10333,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 267.97 44.45 0)
 			(effects
 				(font
@@ -10461,7 +10464,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 274.32 53.34 0)
 			(effects
 				(font
@@ -10856,7 +10859,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 90.17 228.6 0)
 			(effects
 				(font
@@ -10921,7 +10924,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
 			(at 321.31 43.18 0)
 			(effects
 				(font
@@ -11074,12 +11077,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm"
 			(at 209.2452 181.61 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -11206,12 +11210,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 204.1652 181.61 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -11470,7 +11475,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_A-405_P10.16mm_Horizontal"
 			(at 158.75 140.97 0)
 			(effects
 				(font
@@ -11603,12 +11608,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 240.03 135.128 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -11734,12 +11740,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 168.402 123.19 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -11867,7 +11874,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 176.2252 144.78 0)
 			(effects
 				(font
@@ -11936,7 +11943,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 158.75 59.69 0)
 			(effects
 				(font
@@ -12000,12 +12007,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 337.82 138.938 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -12067,7 +12075,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_A-405_P10.16mm_Horizontal"
 			(at 227.33 140.97 0)
 			(effects
 				(font
@@ -12136,12 +12144,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm"
 			(at 253.6952 39.37 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -12269,7 +12278,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_THT_AKL:TO-92_Inline_Wide_CBE"
+		(property "Footprint" "Package_TO_SOT_THT:TO-92L"
 			(at 374.65 208.28 0)
 			(effects
 				(font
@@ -12339,12 +12348,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 215.392 142.24 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -12601,7 +12611,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 365.76 67.818 90)
 			(effects
 				(font
@@ -12668,7 +12678,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0922_L20.0mm_D9.0mm_P25.40mm_Horizontal"
 			(at 52.07 33.528 90)
 			(effects
 				(font
@@ -12735,7 +12745,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 318.008 73.66 90)
 			(effects
 				(font
@@ -12804,7 +12814,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Footprint" "DIL28"
+		(property "Footprint" "Package_DIP:CERDIP-28_W7.62mm_SideBrazed_LongPads_Socket"
 			(at 198.12 219.71 0)
 			(effects
 				(font
@@ -12948,12 +12958,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 156.972 123.19 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -13079,7 +13090,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 318.008 58.42 90)
 			(effects
 				(font
@@ -13279,7 +13290,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_A-405_P10.16mm_Horizontal"
 			(at 170.18 140.97 0)
 			(effects
 				(font
@@ -13348,7 +13359,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 53.34 215.9 0)
 			(effects
 				(font
@@ -13417,12 +13428,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 152.0952 207.01 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -13482,12 +13494,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 170.942 184.15 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -13547,12 +13560,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 143.51 135.128 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -13615,7 +13629,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 91.1352 91.44 0)
 			(effects
 				(font
@@ -13814,7 +13828,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
 			(at 321.31 46.99 0)
 			(effects
 				(font
@@ -13965,7 +13979,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 377.19 201.422 90)
 			(effects
 				(font
@@ -14034,7 +14048,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 77.47 228.6 0)
 			(effects
 				(font
@@ -14100,7 +14114,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 389.89 200.66 0)
 			(effects
 				(font
@@ -14300,7 +14314,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 303.53 104.14 0)
 			(effects
 				(font
@@ -14435,7 +14449,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-3_P5.08mm"
 			(at 388.62 31.75 0)
 			(effects
 				(font
@@ -14573,12 +14587,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:C_Disc_D8.0mm_W5.0mm_P5.00mm"
 			(at 28.9052 134.62 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -14638,12 +14653,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 304.292 119.38 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -14705,12 +14721,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 247.3452 39.37 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -14838,7 +14855,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_A-405_P10.16mm_Horizontal"
 			(at 330.2 144.78 0)
 			(effects
 				(font
@@ -14905,7 +14922,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Fuse:Fuseholder_Cylinder-5x20mm_Stelvio-Kontek_PTF78_Horizontal_Open"
 			(at 30.48 33.528 90)
 			(effects
 				(font
@@ -15039,7 +15056,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_THT_AKL:TO-220-3_Vertical_GDS"
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 			(at 327.66 62.23 0)
 			(effects
 				(font
@@ -15112,7 +15129,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
 			(at 368.3 49.53 0)
 			(effects
 				(font
@@ -15199,12 +15216,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 55.5752 134.62 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -15267,7 +15285,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 117.8052 44.45 0)
 			(effects
 				(font
@@ -15467,7 +15485,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TO-220"
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 			(at 41.91 123.19 0)
 			(effects
 				(font
@@ -15539,7 +15557,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D18.0mm_P7.50mm"
 			(at 89.8652 44.45 0)
 			(effects
 				(font
@@ -15751,7 +15769,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 233.3752 144.78 0)
 			(effects
 				(font
@@ -15821,7 +15839,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
 			(at 32.7152 88.9 0)
 			(effects
 				(font
@@ -15888,7 +15906,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 25.4 218.44 0)
 			(effects
 				(font
@@ -15957,7 +15975,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 324.8152 123.19 0)
 			(effects
 				(font
@@ -16224,7 +16242,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_DIP_AKL:DIP-4_W7.62mm_LongPads"
+		(property "Footprint" "Package_DIP:DIP-4_W10.16mm_LongPads"
 			(at 179.07 59.69 0)
 			(effects
 				(font
@@ -16303,7 +16321,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_THT_AKL:TO-92_Inline_Wide_CBE"
+		(property "Footprint" "Package_TO_SOT_THT:TO-92L"
 			(at 381 63.5 0)
 			(effects
 				(font
@@ -16375,7 +16393,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 83.82 228.6 0)
 			(effects
 				(font
@@ -16439,7 +16457,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0922_L20.0mm_D9.0mm_P25.40mm_Horizontal"
 			(at 43.18 33.528 90)
 			(effects
 				(font
@@ -16573,7 +16591,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_A-405_P10.16mm_Horizontal"
 			(at 330.2 119.38 0)
 			(effects
 				(font
@@ -16722,7 +16740,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D18.0mm_P7.50mm"
 			(at 103.8352 44.45 0)
 			(effects
 				(font
@@ -16987,12 +17005,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 143.51 132.588 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -17054,12 +17073,13 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P5.00mm"
 			(at 260.0452 39.37 0)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -17120,7 +17140,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 227.33 116.84 0)
 			(effects
 				(font
@@ -17253,12 +17273,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 337.82 113.538 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -17318,12 +17339,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm_Socket_LongPads"
 			(at 227.33 53.34 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -17404,7 +17426,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
 			(at 62.23 40.64 0)
 			(effects
 				(font
@@ -17620,7 +17642,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 359.41 212.598 90)
 			(effects
 				(font
@@ -17690,7 +17712,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm"
 			(at 152.7048 144.78 0)
 			(effects
 				(font
@@ -17825,7 +17847,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 325.12 31.75 0)
 			(effects
 				(font
@@ -17895,7 +17917,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm"
 			(at 64.4652 134.62 0)
 			(effects
 				(font
@@ -17962,12 +17984,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 304.292 144.78 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -18159,12 +18182,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 197.612 38.1 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -18357,7 +18381,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 53.34 229.87 0)
 			(effects
 				(font
@@ -18489,12 +18513,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 316.23 138.938 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -18620,7 +18645,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_THT:L_Radial_D8.7mm_P5.00mm_Fastron_07HCP"
 			(at 78.74 83.82 0)
 			(effects
 				(font
@@ -18885,7 +18910,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 180.34 114.3 0)
 			(effects
 				(font
@@ -19213,12 +19238,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 316.23 113.538 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -19280,7 +19306,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Buzzer_Beeper:MagneticBuzzer_ProSignal_ABT-410-RC"
 			(at 305.435 205.74 90)
 			(effects
 				(font
@@ -19426,12 +19452,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 167.64 50.038 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -19493,7 +19520,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 			(at 96.52 228.6 0)
 			(effects
 				(font
@@ -19558,7 +19585,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_T-1_P12.70mm_Horizontal"
 			(at 321.31 39.37 0)
 			(effects
 				(font
@@ -19643,12 +19670,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 197.612 59.69 90)
 			(effects
 				(font
 					(size 0.762 0.762)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -19778,7 +19806,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
 			(at 25.4 229.87 0)
 			(effects
 				(font
@@ -19845,12 +19873,13 @@
 				)
 			)
 		)
-		(property "Footprint" "~"
+		(property "Footprint" "LED_THT:LED_D3.0mm_Clear"
 			(at 316.23 210.82 0)
 			(effects
 				(font
 					(size 1.524 1.524)
 				)
+				(hide yes)
 			)
 		)
 		(property "Datasheet" "~"
@@ -19912,7 +19941,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D7.0mm_W2.5mm_P5.00mm"
 			(at 324.8152 148.59 0)
 			(effects
 				(font
@@ -19982,7 +20011,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-3_P5.08mm"
 			(at 146.05 111.76 0)
 			(effects
 				(font
