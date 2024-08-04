@@ -386,14 +386,6 @@
     [
       "5b898ce7-7cb2-4d45-8284-d2f49c9d3242",
       "Root"
-    ],
-    [
-      "27ca622b-3348-4198-ab6c-80ec67b6a385",
-      "Input-Output"
-    ],
-    [
-      "11428650-ef63-409d-9615-9224c329f1e0",
-      "Voltage-Supplies"
     ]
   ],
   "text_variables": {}
