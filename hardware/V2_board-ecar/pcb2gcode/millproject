@@ -13,8 +13,8 @@
 back=./in/V2_board-ecar-B_Cu.gbr
 front=./in/V2_board-ecar-F_Cu.gbr
 outline=./in/V2_board-ecar-Edge_Cuts.gbr
-drill=./in/V2_board-ecar-PTH.drl
-#drill=./in/V2_board-ecar-NPTH.drl
+#drill=./in/V2_board-ecar-PTH.drl
+drill=./in/V2_board-ecar-NPTH.drl
 
 output-dir=./out
 
@@ -34,13 +34,13 @@ tolerance=0.0500
 zchange=30.0000
 zchange-absolute=false
 zero-start=true
-zsafe=2.0000
+zsafe=3.5000 #3mm to be able to cross mounting screws
 
 # Mill options
 extra-passes=0
 mill-feed=400 #default 600mm/min
 mill-speed=20000
-offset=0.400 #intentional bigger offset than necessary, using 0.4 there were almost no small strips beeing left over between insolation lines.
+offset=0.500 #intentional bigger offset than necessary, using 0.4 there were almost no small strips beeing left over between insolation lines.
 voronoi=false
 zwork=-0.2000 #usin 60degree cutter resulted in ~0.42mm line
 

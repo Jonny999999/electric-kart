@@ -9700,9 +9700,9 @@
 		)
 		(uuid "ba7c3a22-3be8-4674-87fa-49051e3f669a")
 	)
-	(text "TODO: measure gas pedal voltage-drivider resistance\n-> choose R high enough"
+	(text "gas pedal measurements: \n5V-GND: ~1k Ohm when released, ~1k when pressed\nOUT-GND and OUT-5V: moves between 0.9k to 1.7k "
 		(exclude_from_sim no)
-		(at 202.438 54.356 0)
+		(at 197.104 82.804 0)
 		(effects
 			(font
 				(size 1.27 1.27)
