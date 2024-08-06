@@ -485,7 +485,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "pcb2gcode/in/",
       "pos_files": "",
       "specctra_dsn": "tmp/V2_board-ecar.dsn",
       "step": "",
