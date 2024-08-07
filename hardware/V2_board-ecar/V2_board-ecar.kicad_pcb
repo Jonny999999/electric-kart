@@ -81,7 +81,7 @@
 		(pad_to_mask_clearance 0)
 		(allow_soldermask_bridges_in_footprints no)
 		(pcbplotparams
-			(layerselection 0x0001000_ffffffff)
+			(layerselection 0x007f330_ffffffff)
 			(plot_on_all_layers_selection 0x0000000_00000000)
 			(disableapertmacros no)
 			(usegerberextensions no)
@@ -111,11 +111,11 @@
 			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(subtractmaskfromsilk no)
-			(outputformat 1)
+			(outputformat 5)
 			(mirror no)
-			(drillshape 0)
+			(drillshape 1)
 			(scaleselection 1)
-			(outputdirectory "pcb2gcode/in/")
+			(outputdirectory "export/")
 		)
 	)
 	(net 0 "")
@@ -313,7 +313,7 @@
 				)
 			)
 		)
-		(property "Value" "TVS 26V (starts 31V)"
+		(property "Value" "TVS 28V (starts 31V)"
 			(at 7.62 3.77 0)
 			(layer "F.Fab")
 			(uuid "44de4ce0-7789-44c6-9e92-9479a8948753")
@@ -4473,8 +4473,8 @@
 				)
 			)
 		)
-		(property "Value" "GND-supp, Diode, Mosfet (fan)"
-			(at 4.064 6.604 0)
+		(property "Value" "Fan [GND-supp, Diode, Mosfet]"
+			(at 4.064 5.08 0)
 			(layer "F.Fab")
 			(uuid "77b1b59d-d60f-4691-9205-f52641e47b76")
 			(effects
@@ -8353,8 +8353,8 @@
 				)
 			)
 		)
-		(property "Value" "12k"
-			(at 5.08 2.37 90)
+		(property "Value" "12k (15k used)"
+			(at 2.8956 -2.413 90)
 			(layer "F.Fab")
 			(uuid "52f2601d-9d65-43c0-8d51-adf2958a95a2")
 			(effects
@@ -9509,7 +9509,7 @@
 			)
 		)
 		(property "Value" "500mA"
-			(at 11.424 -1.016 0)
+			(at 16.504 3.048 0)
 			(layer "F.Fab")
 			(uuid "1509f9cd-3453-478c-9671-f2bd5b64cc6f")
 			(effects
@@ -14087,8 +14087,8 @@
 				)
 			)
 		)
-		(property "Value" "Relay contacts"
-			(at 4.676 -4.572 90)
+		(property "Value" "Relay contacts [NO, COM, NC]"
+			(at 9.756 -5.08 90)
 			(layer "F.Fab")
 			(uuid "c3a18494-19fd-4fdf-8304-88858ad29345")
 			(effects
@@ -18064,7 +18064,7 @@
 			)
 		)
 		(property "Value" "ST 2x GND"
-			(at 1.651 7.747 90)
+			(at 2.159 5.969 90)
 			(layer "F.Fab")
 			(uuid "88e6acc7-f90c-46b5-b867-916f2bf95ee6")
 			(effects
@@ -21139,7 +21139,7 @@
 			)
 		)
 		(property "Value" "500mA"
-			(at 11.684 -0.508 90)
+			(at 16.002 -0.254 90)
 			(layer "F.Fab")
 			(uuid "7fe3200f-0f5a-41f1-91b0-e1a222bc9b23")
 			(effects
@@ -22136,8 +22136,8 @@
 				)
 			)
 		)
-		(property "Value" "LED ~3,2V 20mA"
-			(at 2.54 5.08 0)
+		(property "Value" "LED 3,2V 20mA [-, +]"
+			(at 2.54 6.604 0)
 			(layer "F.Fab")
 			(uuid "0e1fdd2d-b8be-4951-b6bb-636638266143")
 			(effects
@@ -23198,7 +23198,7 @@
 				)
 			)
 		)
-		(property "Value" "500mA"
+		(property "Value" "slow, max 4A"
 			(at 9.9 0 0)
 			(layer "F.Fab")
 			(uuid "b2128e1e-b739-4a56-aa83-ff91d2b382e6")
@@ -23594,7 +23594,7 @@
 			(uuid "a4e599b3-8382-43a3-969e-567e7590d408")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 11.25 4 0)
+			(at 10.154 2.032 0)
 			(layer "F.Fab")
 			(uuid "441daeb2-2f2b-4a20-b7b1-d2a3fe31a162")
 			(effects
@@ -23653,8 +23653,8 @@
 				)
 			)
 		)
-		(property "Value" "IGBT"
-			(at 2.54 5.08 90)
+		(property "Value" "IGBT [GND, Gate]"
+			(at 2.413 5.08 90)
 			(layer "F.Fab")
 			(uuid "2827c055-7645-42ce-91ea-1996dd0db361")
 			(effects
@@ -26404,7 +26404,7 @@
 			)
 		)
 		(property "Value" "2x BATT IN"
-			(at 2.54 7.747 90)
+			(at 2.54 5.969 90)
 			(layer "F.Fab")
 			(uuid "18e42d88-bcf8-449c-8e37-88701e6c1182")
 			(effects
@@ -26660,7 +26660,7 @@
 				)
 			)
 		)
-		(property "Value" "150k"
+		(property "Value" "100k"
 			(at 5.08 0 90)
 			(layer "F.Fab")
 			(uuid "edf50523-7a40-4c08-b966-b58adffa97fe")
@@ -29396,7 +29396,7 @@
 			)
 		)
 		(property "Value" "Analog-in-2   0-5V"
-			(at 1.9812 10.16 0)
+			(at 0.4572 5.08 0)
 			(layer "F.Fab")
 			(uuid "b2f40732-d680-4201-bdc6-ef85b6fe474c")
 			(effects
@@ -30443,7 +30443,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 2.2568 -1.2446 90)
+			(at 2.2568 -2.0066 90)
 			(layer "F.Fab")
 			(uuid "e20fc0d3-f37c-4bbd-9fa5-1ff72d93431b")
 			(effects
@@ -34588,7 +34588,7 @@
 				)
 			)
 		)
-		(property "Value" "30k"
+		(property "Value" "22k"
 			(at 5.08 -0.254 90)
 			(layer "F.Fab")
 			(uuid "4df48dd4-428c-4d28-b261-cd76cd8d7216")
@@ -35911,7 +35911,7 @@
 			)
 		)
 		(property "Value" "Analog-in-3 - 30to5 (batt)"
-			(at -2.6924 7.112 0)
+			(at 0.3556 6.604 0)
 			(layer "F.Fab")
 			(uuid "53afed75-da93-4181-b2ea-bd8f96696443")
 			(effects
@@ -36168,7 +36168,7 @@
 			)
 		)
 		(property "Value" "Gas Pedal"
-			(at 5.1308 6.096 0)
+			(at 5.1308 5.08 0)
 			(layer "F.Fab")
 			(uuid "18e4f438-fcc7-4bca-9fbb-88b0c3d97024")
 			(effects
@@ -38715,7 +38715,7 @@
 			)
 		)
 		(property "Value" "2x 24V filtered"
-			(at 2.0828 5.08 0)
+			(at 0.5588 4.826 0)
 			(layer "F.Fab")
 			(uuid "b74090b9-eea8-4ec8-99d9-2c59983b3c31")
 			(effects
@@ -39238,7 +39238,7 @@
 			)
 		)
 		(property "Value" "ST 2x GND"
-			(at 3.2512 5.08 0)
+			(at 3.5052 4.826 0)
 			(layer "F.Fab")
 			(uuid "5cc86152-bf01-43b8-b06b-7966d2b2ae7e")
 			(effects
@@ -39608,7 +39608,7 @@
 			)
 		)
 		(property "Value" "2x 24V filtered"
-			(at 1.651 7.62 0)
+			(at 2.921 4.826 0)
 			(layer "F.Fab")
 			(uuid "a575abc9-630f-42a8-90d9-0d888bf0dbba")
 			(effects
@@ -42299,8 +42299,8 @@
 				)
 			)
 		)
-		(property "Value" "500mA"
-			(at 10.284 0 0)
+		(property "Value" "(H7 24V 70W)  -> 3A"
+			(at 11.554 3.048 0)
 			(layer "F.Fab")
 			(uuid "74bf35f6-e402-40dd-b669-257fdaacbf17")
 			(effects
@@ -42695,7 +42695,7 @@
 			(uuid "37a068f6-8559-41bc-abda-70680b113d34")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 11.25 4 0)
+			(at 16.634 -0.254 0)
 			(layer "F.Fab")
 			(uuid "0877dfe2-6fd5-4efc-9caa-bda2557589cf")
 			(effects
@@ -43837,7 +43837,7 @@
 			)
 		)
 		(property "Value" "2x 5V"
-			(at 1.9812 6.604 0)
+			(at 1.9812 4.826 0)
 			(layer "F.Fab")
 			(uuid "925fd793-d423-4b25-bc51-e7af06b679e3")
 			(effects
@@ -44249,6 +44249,252 @@
 		(layer "Edge.Cuts")
 		(uuid "faf7c652-0553-4aa0-a511-b3c5306c3df2")
 	)
+	(gr_text "2x Switch to 5V\n(Pin-4 / PD2), (Pin-5 / PD3)"
+		(at 60.96 104.648 0)
+		(layer "Cmts.User")
+		(uuid "0b5f5094-68e4-474c-9034-2d62a006b2a8")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "FUSE Batt Input (Filter)"
+		(at 26.416 98.552 0)
+		(layer "Cmts.User")
+		(uuid "0c833c58-4f36-49e5-9a87-1e5846683a99")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "(5mm LED 3,2V 20mA)\n(Pin-28/PC5)\n-   +"
+		(at 117.856 -2.032 0)
+		(layer "Cmts.User")
+		(uuid "313f2755-5405-4428-94aa-68dad056c65d")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "24V 24V"
+		(at 37.084 -1.016 0)
+		(layer "Cmts.User")
+		(uuid "7344d5bc-d1af-4f2e-9aa3-701bbd73f8f1")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Analog_gas\n(Pin-25/PC2)\n5V, Pedal, GND"
+		(at 64.516 -2.032 0)
+		(layer "Cmts.User")
+		(uuid "804c8671-e707-4d2c-a312-a56cfe6db83d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.25)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "20-35V \nwith peaks"
+		(at -2.032 92.964 90)
+		(layer "Cmts.User")
+		(uuid "84d1fe36-cee7-4b3b-9fc0-b37c8a60e445")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.125)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "FUSE Relay Output"
+		(at 131.572 99.568 0)
+		(layer "Cmts.User")
+		(uuid "84fe7e3b-112d-4d86-8e2d-2863b74cd486")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "PCB Supply:\nGND GND"
+		(at -2.54 69.596 90)
+		(layer "Cmts.User")
+		(uuid "866b6f62-c00f-47b3-8643-95f45763f7e6")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "FUSE 24V Filtered"
+		(at 32.512 14.732 0)
+		(layer "Cmts.User")
+		(uuid "8edd6dfd-67a2-4998-89f8-71f286b29fa2")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "GND GND"
+		(at 15.748 -1.016 0)
+		(layer "Cmts.User")
+		(uuid "a0ab5553-2d3e-465c-93c8-d029bd8b8d5c")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Fan\nGND(in/out), Fan+(in), Fan-(out)\n(Pin-16/PB2)"
+		(at 140.208 -2.032 0)
+		(layer "Cmts.User")
+		(uuid "b3dc539b-5fe3-4406-adf6-dba84a204dfb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "PCB Supply:\nBATT, BATT"
+		(at -2.54 82.804 90)
+		(layer "Cmts.User")
+		(uuid "b7e5bdd9-6852-4933-a673-7af49fe72c7a")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "Analog_0-5V\n(Pin-24/PC1)\n5V, A(in)"
+		(at 77.216 -2.032 0)
+		(layer "Cmts.User")
+		(uuid "bfa78c81-f212-4af3-9db0-1755bb587322")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.25)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "FUSE Mosfet"
+		(at 157.48 21.844 90)
+		(layer "Cmts.User")
+		(uuid "c361d9ea-875c-4b31-a3ce-2686468d089d")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "5V  5V"
+		(at 47.244 -1.016 0)
+		(layer "Cmts.User")
+		(uuid "d0386aeb-fd93-4be8-a7e7-9f00ec87b9aa")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "NO, COM, NC\nRelay \n(Pin-10/PB7)"
+		(at 168.656 79.756 90)
+		(layer "Cmts.User")
+		(uuid "e1189f83-2d39-4234-9d5e-56b103a6058b")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "24V 24V"
+		(at 26.924 -1.016 0)
+		(layer "Cmts.User")
+		(uuid "e693cf0b-692c-47f8-bfc5-230fe7496d35")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "GND, Gate\nIGBT\n(Pin-16/PB2)"
+		(at 168.148 62.484 90)
+		(layer "Cmts.User")
+		(uuid "ee628a7f-49a0-473b-ac45-20dde9b1487c")
+		(effects
+			(font
+				(size 1.3 1.3)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify bottom)
+		)
+	)
+	(gr_text "Analog_0-30V\n(Pin-23/PC0)\n5V(out), 24V(in)\n"
+		(at 89.916 -2.032 0)
+		(layer "Cmts.User")
+		(uuid "ef417399-677c-4da4-84f0-495326d4c14a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.25)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(segment
 		(start 59.69 50.292)
 		(end 59.69 56.515)
@@ -44552,6 +44798,14 @@
 		(layer "B.Cu")
 		(net 2)
 		(uuid "304af2b3-3dc0-4673-9414-514b7a933f58")
+	)
+	(segment
+		(start 82.55 10.668)
+		(end 81.3308 10.668)
+		(width 1.5)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "31c851b2-2ff6-4a9b-afa1-f77aed838ada")
 	)
 	(segment
 		(start 65.532 76.708)
@@ -45386,14 +45640,6 @@
 		(uuid "c2ffcba0-8a79-4e1c-9217-b8b17915daeb")
 	)
 	(segment
-		(start 37.361 64.135)
-		(end 37.211 64.135)
-		(width 1.5)
-		(layer "B.Cu")
-		(net 2)
-		(uuid "c438f572-6ac3-432e-b4c5-631d95ef09ce")
-	)
-	(segment
 		(start 51.181 84.963)
 		(end 43.053 93.091)
 		(width 1.5)
@@ -45552,6 +45798,14 @@
 		(layer "B.Cu")
 		(net 2)
 		(uuid "e45845f7-b7fb-4788-ab19-92ec4b8611e7")
+	)
+	(segment
+		(start 81.3308 10.668)
+		(end 76.2508 5.588)
+		(width 1.5)
+		(layer "B.Cu")
+		(net 2)
+		(uuid "e48e8629-94b9-45f4-96cc-48eb20d1eb00")
 	)
 	(segment
 		(start 145.725 23.876)
@@ -47584,6 +47838,22 @@
 		(layer "B.Cu")
 		(net 37)
 		(uuid "b3ddd2bd-1530-4d8e-8bfd-9b6197f80196")
+	)
+	(segment
+		(start 71.12 10.668)
+		(end 71.12 5.6388)
+		(width 1.5)
+		(layer "B.Cu")
+		(net 38)
+		(uuid "374a9e32-e008-4dac-8580-0582692d9fb8")
+	)
+	(segment
+		(start 71.12 5.6388)
+		(end 71.1708 5.588)
+		(width 1.5)
+		(layer "B.Cu")
+		(net 38)
+		(uuid "5705113a-9f06-4b84-8bc7-3f75137f4f17")
 	)
 	(segment
 		(start 86.36 10.668)
