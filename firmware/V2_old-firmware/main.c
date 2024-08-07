@@ -1,8 +1,5 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include <stdio.h>
-#include "usart.h"
-#include "display.h"
 
 // define the PWM clock divider. The PWM frequency will be
 // F_PWM = F_CPU / PWM_CLOCKDIV
@@ -25,31 +22,23 @@
 #define SET_PWM0 (PWM0_PORT |= (1<<PB1))
 #define CLEAR_PWM0 (PWM0_PORT &= ~(1<<PB1))
 
-// PWM1 (output)
-#define PWM1 PB2
-#define PWM1_PORT PORTB
-#define PWM1_DDR DDRB
-#define PWM1_PIN PINB
-#define SET_PWM1 (PWM1_PORT |= (1<<PB2))
-#define CLEAR_PWM1 (PWM1_PORT &= ~(1<<PB2))
+// MOSFET (output) MOSFET
+#define MOSFET PB2
+#define MOSFET_PORT PORTB
+#define MOSFET_DDR DDRB
+#define MOSFET_PIN PINB
+#define SET_MOSFET (MOSFET_PORT |= (1<<PB2))
+#define CLEAR_MOSFET (MOSFET_PORT &= ~(1<<PB2))
 
-// OUT0 (output) MOSFET
-#define OUT0 PB2
-#define OUT0_PORT PORTB
-#define OUT0_DDR DDRB
-#define OUT0_PIN PINB
-#define SET_OUT0 (OUT0_PORT |= (1<<PB2))
-#define CLEAR_OUT0 (OUT0_PORT &= ~(1<<PB2))
+// RELAY (output) RELAY
+#define RELAY PB7
+#define RELAY_PORT PORTB
+#define RELAY_DDR DDRB
+#define RELAY_PIN PINB
+#define SET_RELAY (RELAY_PORT |= (1<<PB7))
+#define CLEAR_RELAY (RELAY_PORT &= ~(1<<PB7))
 
-// OUT2 (output) RELAY
-#define OUT2 PB7
-#define OUT2_PORT PORTB
-#define OUT2_DDR DDRB
-#define OUT2_PIN PINB
-#define SET_OUT2 (OUT2_PORT |= (1<<PB7))
-#define CLEAR_OUT2 (OUT2_PORT &= ~(1<<PB7))
-
-// ANALOG0 (input)
+// ANALOG0 (input) - reserve
 #define ANALOG0 PC0
 #define ANALOG0_PORT PORTC
 #define ANALOG0_DDR DDRC
@@ -58,38 +47,40 @@
 #define SET_PULLUP_ANALOG0 (ANALOG0_PORT |= (1<<PC0))
 #define CLEAR_PULLUP_ANALOG0 (ANALOG0_PORT &= ~(1<<PC0))
 
-// ANALOG1 (input)
-#define ANALOG1 PC2
-#define ANALOG1_PORT PORTC
-#define ANALOG1_DDR DDRC
-#define ANALOG1_PIN PINC
-#define IS_HIGH_ANALOG1 (ANALOG1_PIN & (1<<PC2))
-#define SET_PULLUP_ANALOG1 (ANALOG1_PORT |= (1<<PC2))
-#define CLEAR_PULLUP_ANALOG1 (ANALOG1_PORT &= ~(1<<PC2))
+// ANALOG_GAS_PEDAL (input)
+#define ANALOG_GAS_PEDAL PC2
+#define ANALOG_GAS_PEDAL_PORT PORTC
+#define ANALOG_GAS_PEDAL_DDR DDRC
+#define ANALOG_GAS_PEDAL_PIN PINC
+#define IS_HIGH_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PIN & (1<<PC2))
+#define SET_PULLUP_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PORT |= (1<<PC2))
+#define CLEAR_PULLUP_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PORT &= ~(1<<PC2))
 
-// LED1 (output) onbard
-#define LED1 PC3
-#define LED1_PORT PORTC
-#define LED1_DDR DDRC
-#define LED1_PIN PINC
-#define SET_LED1 (LED1_PORT |= (1<<PC3))
-#define CLEAR_LED1 (LED1_PORT &= ~(1<<PC3))
+// Note: ANALOG batt measurement not added yet
 
-// LED0 (output) external
-#define LED0 PC5
-#define LED0_PORT PORTC
-#define LED0_DDR DDRC
-#define LED0_PIN PINC
-#define SET_LED0 (LED0_PORT |= (1<<PC5))
-#define CLEAR_LED0 (LED0_PORT &= ~(1<<PC5))
+// LED_ONBOARD (output) onbard
+#define LED_ONBOARD PC3
+#define LED_ONBOARD_PORT PORTC
+#define LED_ONBOARD_DDR DDRC
+#define LED_ONBOARD_PIN PINC
+#define SET_LED_ONBOARD (LED_ONBOARD_PORT |= (1<<PC3))
+#define CLEAR_LED_ONBOARD (LED_ONBOARD_PORT &= ~(1<<PC3))
+
+// LED_EXTERNAL (output) external
+#define LED_EXTERNAL PC5
+#define LED_EXTERNAL_PORT PORTC
+#define LED_EXTERNAL_DDR DDRC
+#define LED_EXTERNAL_PIN PINC
+#define SET_LED_EXTERNAL (LED_EXTERNAL_PORT |= (1<<PC5))
+#define CLEAR_LED_EXTERNAL (LED_EXTERNAL_PORT &= ~(1<<PC5))
 
 // BUZZER (output
 #define BUZZER PC4
 #define BUZZER_PORT PORTC
 #define BUZZER_DDR DDRC
 #define BUZZER_PIN PINC
-#define SET_BUZZER (LED0_PORT |= (1<<PC4))
-#define CLEAR_BUZZER (LED0_PORT &= ~(1<<PC4))
+#define SET_BUZZER (LED_EXTERNAL_PORT |= (1<<PC4))
+#define CLEAR_BUZZER (LED_EXTERNAL_PORT &= ~(1<<PC4))
 
 // SW1 (input)
 #define SW1 PD2
@@ -113,19 +104,17 @@
 void io_init(){
   PWM0_DDR |= (1<<PB1);
   PWM0_PORT &= ~(1<<PB1);
-  PWM1_DDR |= (1<<PB2);
-  PWM1_PORT &= ~(1<<PB2);
 
-  OUT0_DDR |= (1<<PB2);
-  OUT0_PORT &= ~(1<<PB2);
-  OUT2_DDR |= (1<<PB7);
-  OUT2_PORT &= ~(1<<PB7);
+  MOSFET_DDR |= (1<<PB2);
+  MOSFET_PORT &= ~(1<<PB2);
+  RELAY_DDR |= (1<<PB7);
+  RELAY_PORT &= ~(1<<PB7);
   ANALOG0_DDR &= ~(1<<PC0);
-  ANALOG1_DDR &= ~(1<<PC2);
-  LED1_DDR |= (1<<PC3);
-  LED1_PORT &= ~(1<<PC3);
-  LED0_DDR |= (1<<PC5);
-  LED0_PORT &= ~(1<<PC5);
+  ANALOG_GAS_PEDAL_DDR &= ~(1<<PC2);
+  LED_ONBOARD_DDR |= (1<<PC3);
+  LED_ONBOARD_PORT &= ~(1<<PC3);
+  LED_EXTERNAL_DDR |= (1<<PC5);
+  LED_EXTERNAL_PORT &= ~(1<<PC5);
   BUZZER_DDR |= (1<<PC4);
   BUZZER_PORT &= ~(1<<PC4);
   SW1_DDR &= ~(1<<PD2);
@@ -196,12 +185,6 @@ void init_pwm(void){
 
 int main (void)
 {
-	//static FILE usart_stdout = FDEV_SETUP_STREAM( mputc, 0, _FDEV_SETUP_WRITE);
-	//stdout = &usart_stdout;
-	stdout = &display_stream;
-  uart_init();
-
-
   DDRD = 0x0;
   PORTD = 0x0;
   _delay_ms(1);
@@ -210,19 +193,11 @@ int main (void)
   DDRB = DDRB | (1<<1);
   PORTB = PORTB | (1<<1);
   init_pwm();
-
-  printf("hello world.\n");
-
-  
-  //uint8_t an=0;
-
-
-
   uint8_t pwm_enabled = 1;
 
-  SET_LED0;
+  SET_LED_EXTERNAL;
   _delay_ms(1000);
-  CLEAR_LED0;
+  CLEAR_LED_EXTERNAL;
 
   while(1){
     //    _delay_ms (500);
@@ -235,31 +210,29 @@ int main (void)
 
     //
     uint16_t analog;
-    analog = ReadChannel(ANALOG1);
+    analog = ReadChannel(ANALOG_GAS_PEDAL);
     #define POTI_LOW 84
     #define POTI_HIGH 919
     #define PWM_MAX 0x3ff
     
     uint16_t out;
-    if(analog <= POTI_LOW){
+    if(analog <= POTI_LOW){ // pedal released -> completely off 
       if(pwm_enabled){
         CLEAR_PWM0;
-        CLEAR_PWM1;
         disable_pwm();
         pwm_enabled = 0;
       }
       out = 0;
-      CLEAR_LED1;
-    }else if(analog >= POTI_HIGH){
+      CLEAR_LED_ONBOARD;
+    }else if(analog >= POTI_HIGH){ // invalid too high input -> turn off 
       if(pwm_enabled){
         SET_PWM0;
-        SET_PWM1;
         disable_pwm();
         pwm_enabled = 0;
       }
       out = 0x3ff;
-      SET_LED1;
-    }else{
+      SET_LED_ONBOARD;
+    }else{  // valid range, apply duty
       if(!pwm_enabled){
         enable_pwm();
         pwm_enabled = 1;
@@ -267,45 +240,48 @@ int main (void)
       uint32_t tmp = (uint32_t)((analog - POTI_LOW)) * PWM_MAX;
 
       out = tmp / (POTI_HIGH - POTI_LOW);
-      CLEAR_LED1;
+      CLEAR_LED_ONBOARD;
     }
 
-    //printf("in: %d, out: %d\n\r", analog, out);
+    //TODO / missing:  turn on completely at certain threshold, fan control
+
 
     OCR1A = out;
     OCR1B = out;
     //OCR1B = 0x3ff - analog;
 
     if(pwm_enabled){
-      SET_LED0;
+      SET_LED_EXTERNAL;
     }else{
-      CLEAR_LED0;
+      CLEAR_LED_EXTERNAL;
     }
 
     //if (analog >= 1023/4) {
-    //  SET_LED0;
+    //  SET_LED_EXTERNAL;
     //}else{
-    //  CLEAR_LED0;
+    //  CLEAR_LED_EXTERNAL;
     //}
 
     //if (analog >=900) {
-    //  SET_LED1;
+    //  SET_LED_ONBOARD;
     //}else{
-    //  CLEAR_LED1;
+    //  CLEAR_LED_ONBOARD;
     //}
 
     if(IS_HIGH_SW0){
-      SET_OUT2;
+      SET_RELAY;
     }else{
-      CLEAR_OUT2;
+      CLEAR_RELAY;
     }
 
     if(IS_HIGH_SW1){
       SET_BUZZER;
-      SET_OUT0;
+      SET_MOSFET;
+      SET_LED_EXTERNAL;
     }else{
       CLEAR_BUZZER;
-      CLEAR_OUT0;
+      CLEAR_MOSFET;
+      CLEAR_LED_EXTERNAL;
     }
 
   }

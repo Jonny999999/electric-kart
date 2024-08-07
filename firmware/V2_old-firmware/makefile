@@ -1,5 +1,6 @@
 # Project settings
 MCU = atmega8
+#MCU = atmega328p
 
 # Clock frequency.
 # Possible values are 8000000UL, 4000000UL, 2000000UL, 1000000UL
@@ -15,7 +16,8 @@ FORMAT = ihex
 
 # Project files
 PROJECT_PATH = .
-PROJECT_OBJS = main.o display.o usart.o
+PROJECT_OBJS = main.o
+#PROJECT_OBJS = main.o display.o usart.o
 #----------------------------------------------------------
 # Programmer settings
 AVRDUDE_PROGRAMMER = usbasp
