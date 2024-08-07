@@ -33,15 +33,15 @@
 #define SET_PWM1 (PWM1_PORT |= (1<<PB2))
 #define CLEAR_PWM1 (PWM1_PORT &= ~(1<<PB2))
 
-// OUT0 (output)
-#define OUT0 PB6
+// OUT0 (output) MOSFET
+#define OUT0 PB2
 #define OUT0_PORT PORTB
 #define OUT0_DDR DDRB
 #define OUT0_PIN PINB
-#define SET_OUT0 (OUT0_PORT |= (1<<PB6))
-#define CLEAR_OUT0 (OUT0_PORT &= ~(1<<PB6))
+#define SET_OUT0 (OUT0_PORT |= (1<<PB2))
+#define CLEAR_OUT0 (OUT0_PORT &= ~(1<<PB2))
 
-// OUT2 (output)
+// OUT2 (output) RELAY
 #define OUT2 PB7
 #define OUT2_PORT PORTB
 #define OUT2_DDR DDRB
@@ -59,65 +59,55 @@
 #define CLEAR_PULLUP_ANALOG0 (ANALOG0_PORT &= ~(1<<PC0))
 
 // ANALOG1 (input)
-#define ANALOG1 PC1
+#define ANALOG1 PC2
 #define ANALOG1_PORT PORTC
 #define ANALOG1_DDR DDRC
 #define ANALOG1_PIN PINC
-#define IS_HIGH_ANALOG1 (ANALOG1_PIN & (1<<PC1))
-#define SET_PULLUP_ANALOG1 (ANALOG1_PORT |= (1<<PC1))
-#define CLEAR_PULLUP_ANALOG1 (ANALOG1_PORT &= ~(1<<PC1))
+#define IS_HIGH_ANALOG1 (ANALOG1_PIN & (1<<PC2))
+#define SET_PULLUP_ANALOG1 (ANALOG1_PORT |= (1<<PC2))
+#define CLEAR_PULLUP_ANALOG1 (ANALOG1_PORT &= ~(1<<PC2))
 
-// LED1 (output)
-#define LED1 PC2
+// LED1 (output) onbard
+#define LED1 PC3
 #define LED1_PORT PORTC
 #define LED1_DDR DDRC
 #define LED1_PIN PINC
-#define SET_LED1 (LED1_PORT |= (1<<PC2))
-#define CLEAR_LED1 (LED1_PORT &= ~(1<<PC2))
+#define SET_LED1 (LED1_PORT |= (1<<PC3))
+#define CLEAR_LED1 (LED1_PORT &= ~(1<<PC3))
 
-// LED0 (output)
-#define LED0 PC3
+// LED0 (output) external
+#define LED0 PC5
 #define LED0_PORT PORTC
 #define LED0_DDR DDRC
 #define LED0_PIN PINC
-#define SET_LED0 (LED0_PORT |= (1<<PC3))
-#define CLEAR_LED0 (LED0_PORT &= ~(1<<PC3))
+#define SET_LED0 (LED0_PORT |= (1<<PC5))
+#define CLEAR_LED0 (LED0_PORT &= ~(1<<PC5))
 
-// SPEED1 (input)
-#define SPEED1 PD2
-#define SPEED1_PORT PORTD
-#define SPEED1_DDR DDRD
-#define SPEED1_PIN PIND
-#define IS_HIGH_SPEED1 (SPEED1_PIN & (1<<PD2))
-#define SET_PULLUP_SPEED1 (SPEED1_PORT |= (1<<PD2))
-#define CLEAR_PULLUP_SPEED1 (SPEED1_PORT &= ~(1<<PD2))
-
-// SPEED2 (input)
-#define SPEED2 PD3
-#define SPEED2_PORT PORTD
-#define SPEED2_DDR DDRD
-#define SPEED2_PIN PIND
-#define IS_HIGH_SPEED2 (SPEED2_PIN & (1<<PD3))
-#define SET_PULLUP_SPEED2 (SPEED2_PORT |= (1<<PD3))
-#define CLEAR_PULLUP_SPEED2 (SPEED2_PORT &= ~(1<<PD3))
+// BUZZER (output
+#define BUZZER PC4
+#define BUZZER_PORT PORTC
+#define BUZZER_DDR DDRC
+#define BUZZER_PIN PINC
+#define SET_BUZZER (LED0_PORT |= (1<<PC4))
+#define CLEAR_BUZZER (LED0_PORT &= ~(1<<PC4))
 
 // SW1 (input)
-#define SW1 PD6
+#define SW1 PD2
 #define SW1_PORT PORTD
 #define SW1_DDR DDRD
 #define SW1_PIN PIND
-#define IS_HIGH_SW1 (SW1_PIN & (1<<PD6))
-#define SET_PULLUP_SW1 (SW1_PORT |= (1<<PD6))
-#define CLEAR_PULLUP_SW1 (SW1_PORT &= ~(1<<PD6))
+#define IS_HIGH_SW1 (SW1_PIN & (1<<PD2))
+#define SET_PULLUP_SW1 (SW1_PORT |= (1<<PD2))
+#define CLEAR_PULLUP_SW1 (SW1_PORT &= ~(1<<PD2))
 
 // SW0 (input)
-#define SW0 PD7
+#define SW0 PD3
 #define SW0_PORT PORTD
 #define SW0_DDR DDRD
 #define SW0_PIN PIND
-#define IS_HIGH_SW0 (SW0_PIN & (1<<PD7))
-#define SET_PULLUP_SW0 (SW0_PORT |= (1<<PD7))
-#define CLEAR_PULLUP_SW0 (SW0_PORT &= ~(1<<PD7))
+#define IS_HIGH_SW0 (SW0_PIN & (1<<PD3))
+#define SET_PULLUP_SW0 (SW0_PORT |= (1<<PD3))
+#define CLEAR_PULLUP_SW0 (SW0_PORT &= ~(1<<PD3))
 
 
 void io_init(){
@@ -126,20 +116,20 @@ void io_init(){
   PWM1_DDR |= (1<<PB2);
   PWM1_PORT &= ~(1<<PB2);
 
-  OUT0_DDR |= (1<<PB6);
-  OUT0_PORT &= ~(1<<PB6);
+  OUT0_DDR |= (1<<PB2);
+  OUT0_PORT &= ~(1<<PB2);
   OUT2_DDR |= (1<<PB7);
   OUT2_PORT &= ~(1<<PB7);
   ANALOG0_DDR &= ~(1<<PC0);
-  ANALOG1_DDR &= ~(1<<PC1);
-  LED1_DDR |= (1<<PC2);
-  LED1_PORT &= ~(1<<PC2);
-  LED0_DDR |= (1<<PC3);
-  LED0_PORT &= ~(1<<PC3);
-  SPEED1_DDR &= ~(1<<PD2);
-  SPEED2_DDR &= ~(1<<PD3);
-  SW1_DDR &= ~(1<<PD6);
-  SW0_DDR &= ~(1<<PD7);
+  ANALOG1_DDR &= ~(1<<PC2);
+  LED1_DDR |= (1<<PC3);
+  LED1_PORT &= ~(1<<PC3);
+  LED0_DDR |= (1<<PC5);
+  LED0_PORT &= ~(1<<PC5);
+  BUZZER_DDR |= (1<<PC4);
+  BUZZER_PORT &= ~(1<<PC4);
+  SW1_DDR &= ~(1<<PD2);
+  SW0_DDR &= ~(1<<PD3);
 }
 
 
@@ -304,11 +294,19 @@ int main (void)
     //  CLEAR_LED1;
     //}
 
-    //if(IS_HIGH_SW0){
-    //  SET_LED1;
-    //}else{
-    //  CLEAR_LED1;
-    //}
+    if(IS_HIGH_SW0){
+      SET_OUT2;
+    }else{
+      CLEAR_OUT2;
+    }
+
+    if(IS_HIGH_SW1){
+      SET_BUZZER;
+      SET_OUT0;
+    }else{
+      CLEAR_BUZZER;
+      CLEAR_OUT0;
+    }
 
   }
 }
