@@ -183,8 +183,13 @@ void init_pwm(void){
   OCR1B = 0;
 }
 
+
+
+
+
 int main (void)
 {
+
   DDRD = 0x0;
   PORTD = 0x0;
   _delay_ms(1);
@@ -193,12 +198,18 @@ int main (void)
   DDRB = DDRB | (1<<1);
   PORTB = PORTB | (1<<1);
   init_pwm();
+
+
+
+
   uint8_t pwm_enabled = 1;
 
-  SET_LED_EXTERNAL;
-  _delay_ms(1000);
-  CLEAR_LED_EXTERNAL;
 
+  uint32_t count = 0;
+  uint32_t seen = 0;
+  uint32_t timeout = 500;  // 10s
+  uint32_t timer1 = 0;
+  uint32_t timer1_timeout = 100;
   while(1){
     //    _delay_ms (500);
     //    PORTD = PORTD&(~(1<<5)); // D5 ausschalten
@@ -216,17 +227,17 @@ int main (void)
     #define PWM_MAX 0x3ff
     
     uint16_t out;
-    if(analog <= POTI_LOW){ // pedal released -> completely off 
+    if(analog <= POTI_LOW){ // pedal released -> turn pwm off, set to 0 duty
       if(pwm_enabled){
-        CLEAR_PWM0;
+        CLEAR_PWM0; //turn pwm pin off constantly
         disable_pwm();
         pwm_enabled = 0;
       }
       out = 0;
       CLEAR_LED_ONBOARD;
-    }else if(analog >= POTI_HIGH){ // invalid too high input -> turn off 
+    }else if(analog >= POTI_HIGH){ // above max input -> turn pwm off, set to max value
       if(pwm_enabled){
-        SET_PWM0;
+        SET_PWM0; //turn pwm pin on constantly
         disable_pwm();
         pwm_enabled = 0;
       }
@@ -243,13 +254,12 @@ int main (void)
       CLEAR_LED_ONBOARD;
     }
 
-    //TODO / missing:  turn on completely at certain threshold, fan control
-
 
     OCR1A = out;
     OCR1B = out;
     //OCR1B = 0x3ff - analog;
 
+    // indicate pwm mode (off when duty is max or off)
     if(pwm_enabled){
       SET_LED_EXTERNAL;
     }else{
@@ -257,16 +267,42 @@ int main (void)
     }
 
     //if (analog >= 1023/4) {
-    //  SET_LED_EXTERNAL;
+    //  SET_LED0;
     //}else{
-    //  CLEAR_LED_EXTERNAL;
+    //  CLEAR_LED0;
     //}
 
     //if (analog >=900) {
-    //  SET_LED_ONBOARD;
+    //  SET_LED1;
     //}else{
-    //  CLEAR_LED_ONBOARD;
+    //  CLEAR_LED1;
     //}
+
+    if(analog >= 200){
+      seen = count;
+    }
+
+    if(count > seen+timeout){
+      CLEAR_MOSFET;
+    }else{
+      SET_MOSFET;
+    }
+
+    if(count > timer1+timer1_timeout){
+      timer1 = count;
+    }
+
+    _delay_ms(10);
+    count++;
+
+    //if(IS_HIGH_SW0){
+    //  SET_LED1;
+    //}else{
+    //  CLEAR_LED1;
+    //}
+
+
+
 
     if(IS_HIGH_SW0){
       SET_RELAY;
@@ -275,12 +311,12 @@ int main (void)
     }
 
     if(IS_HIGH_SW1){
-      SET_BUZZER;
-      SET_MOSFET;
+      //SET_BUZZER;
+      //SET_MOSFET;
       SET_LED_EXTERNAL;
     }else{
-      CLEAR_BUZZER;
-      CLEAR_MOSFET;
+      //CLEAR_BUZZER;
+      //CLEAR_MOSFET;
       CLEAR_LED_EXTERNAL;
     }
 
