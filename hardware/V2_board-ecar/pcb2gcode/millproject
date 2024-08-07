@@ -13,8 +13,9 @@
 back=./in/V2_board-ecar-B_Cu.gbr
 front=./in/V2_board-ecar-F_Cu.gbr
 outline=./in/V2_board-ecar-Edge_Cuts.gbr
-#drill=./in/V2_board-ecar-PTH.drl
-drill=./in/V2_board-ecar-NPTH.drl
+#note: running for each drill file separately and merging the gcode manually (4 mounting holes are in a separate gerber file)
+drill=./in/V2_board-ecar-PTH.drl
+#drill=./in/V2_board-ecar-NPTH.drl
 
 output-dir=./out
 
