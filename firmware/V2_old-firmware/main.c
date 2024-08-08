@@ -200,6 +200,12 @@ int main (void)
   init_pwm();
 
 
+for (int i=0; i<3; i++) {
+  SET_BUZZER;
+  _delay_ms(60);
+  CLEAR_BUZZER;
+  _delay_ms(100);
+}
 
 
   uint8_t pwm_enabled = 1;
@@ -313,11 +319,11 @@ int main (void)
     if(IS_HIGH_SW1){
       //SET_BUZZER;
       //SET_MOSFET;
-      SET_LED_EXTERNAL;
+      //SET_LED_EXTERNAL;
     }else{
       //CLEAR_BUZZER;
       //CLEAR_MOSFET;
-      CLEAR_LED_EXTERNAL;
+      //CLEAR_LED_EXTERNAL;
     }
 
   }
