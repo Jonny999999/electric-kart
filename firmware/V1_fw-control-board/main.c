@@ -206,10 +206,11 @@ void init_pwm(void){
 
 int main (void)
 {
+  display_stream_init();
 	//static FILE usart_stdout = FDEV_SETUP_STREAM( mputc, 0, _FDEV_SETUP_WRITE);
 	//stdout = &usart_stdout;
 	stdout = &display_stream;
-  uart_init();
+  //uart_init();
 
 
   DDRD = 0x0;
@@ -231,9 +232,18 @@ int main (void)
   uint8_t pwm_enabled = 1;
 
   SET_LED0;
+  SET_OUT0;
+  SET_OUT2;
   _delay_ms(1000);
   CLEAR_LED0;
+  CLEAR_OUT0;
+  CLEAR_OUT2;
 
+  uint32_t count = 0;
+  uint32_t seen = 0;
+  uint32_t timeout = 500;  // 10s
+  uint32_t timer1 = 0;
+  uint32_t timer1_timeout = 100;
   while(1){
     //    _delay_ms (500);
     //    PORTD = PORTD&(~(1<<5)); // D5 ausschalten
@@ -303,6 +313,26 @@ int main (void)
     //}else{
     //  CLEAR_LED1;
     //}
+
+    if(analog >= 200){
+      seen = count;
+    }
+
+    if(count > seen+timeout){
+      CLEAR_OUT0;
+      CLEAR_OUT2;
+    }else{
+      SET_OUT0;
+      SET_OUT2;
+    }
+
+    if(count > timer1+timer1_timeout){
+      timer1 = count;
+      printf("%u\n", out);
+    }
+
+    _delay_ms(10);
+    count++;
 
     //if(IS_HIGH_SW0){
     //  SET_LED1;
