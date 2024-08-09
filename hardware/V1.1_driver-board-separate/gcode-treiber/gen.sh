@@ -1,0 +1,11 @@
+#!/bin/bash
+rm *.ngc
+rm *.png
+#pcb2gcode --front control-F_Cu.gtl --back control-B_Cu.gbl --outline control-Edge_Cuts.gbr --drill control.drl --zwork 0.35 --zsafe 5 --mill-feed 300 --mill-speed 20000 --offset 10 --zdrill 2.3 --zchange 5 --drill-feed 1000 --drill-speed 20000 --drill-front --cutter-diameter 1 --zcut 2.3 --cut-feed 300 --cut-speed 20000 --cut-infeed 3 --bridges 2 --zbridges 1 --metric --metricoutput
+#pcb2gcode --front control-F_Cu.gtl --zwork -0.35 --zsafe 5 --mill-feed 300 --mill-speed 20000 --offset 0.2 --zdrill -1.8 --zchange 5 --drill-feed 1000 --drill-speed 20000 --drill-front --cutter-diameter 1 --zcut -1.8 --cut-feed 300 --cut-speed 20000 --cut-infeed 3 --bridges 2 --zbridges 1 --metric --metricoutput
+#pcb2gcode --back control-B_Cu.gbl --zwork -0.35 --zsafe 5 --mill-feed 300 --mill-speed 20000 --offset 0.2 --zdrill -1.8 --zchange 5 --drill-feed 1000 --drill-speed 20000 --drill-front --cutter-diameter 1 --zcut -1.8 --cut-feed 300 --cut-speed 20000 --cut-infeed 3 --bridges 2 --zbridges 1 --metric --metricoutput
+#pcb2gcode --outline control-Edge_Cuts.gbr --zwork -0.35 --zsafe 5 --mill-feed 300 --mill-speed 20000 --offset 0.2 --zdrill -1.8 --zchange 5 --drill-feed 1000 --drill-speed 20000 --drill-front --cutter-diameter 1 --zcut -1.8 --cut-feed 300 --cut-speed 20000 --cut-infeed 3 --bridges 2 --zbridges 1 --metric --metricoutput
+m_pcb2gcode --back back.gbl --drill control.drl --zwork -0.2 --zsafe 3 --mill-feed 100 --mill-speed 20000 --offset 0.4 --zdrill -1.7 --zchange 30 --drill-feed 200 --drill-speed 20000 --metric --metricoutput --optimise
+m_pcb2gcode --outline edge.gbr --zsafe 3 --zchange 30 --cutter-diameter 1 --zcut -1.7 --cut-feed 200 --cut-speed 20000 --cut-infeed 0.6 --bridges 2 --zbridges -0.8 --metric --metricoutput --optimise
+m_pcb2gcode --back back.gbl --drill drill.drl --basename fix --zwork -0.2 --zsafe 3 --mill-feed 100 --mill-speed 20000 --offset 0.3 --zdrill -1.7 --zchange 30 --drill-feed 200 --drill-speed 20000 --metric --metricoutput --optimise
+#m_pcb2gcode --back control-B_Cu.gbl --drill fix.drl --zwork -0.6 --zsafe 3 --mill-feed 100 --mill-speed 20000 --offset 0.3 --zdrill -5.0 --zchange 30 --drill-feed 300 --drill-speed 20000 --drill-front --metric --metricoutput --optimise --basename fix

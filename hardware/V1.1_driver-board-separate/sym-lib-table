@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 0)
+  (lib (name "treiber-rescue")(type "Legacy")(uri "${KIPRJMOD}/treiber-rescue.lib")(options "")(descr ""))
+  (lib (name "mcp1407")(type "Legacy")(uri "${KIPRJMOD}/lib/mcp1407.lib")(options "")(descr ""))
+  (lib (name "sfh620a")(type "Legacy")(uri "${KIPRJMOD}/lib/sfh620a.lib")(options "")(descr ""))
+  (lib (name "leg-12")(type "Legacy")(uri "${KIPRJMOD}/lib/leg-12.lib")(options "")(descr ""))
+)

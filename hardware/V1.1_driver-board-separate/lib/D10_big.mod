@@ -1,0 +1,55 @@
+PCBNEW-LibModule-V1  Sun 17 May 2015 01:06:30 PM CEST
+# encoding utf-8
+Units mm
+$INDEX
+D10_big
+$EndINDEX
+$MODULE D10_big
+Po 0 0 0 15 5558760A 00000000 ~~
+Li D10_big
+Kw D
+Sc 0
+AR 
+Op 0 A 0
+T0 0 -0.8 1.397 1.27 0 0.2032 N V 21 N ""
+T1 0 0.8 1.397 1.27 0 0.2032 N I 21 N "Val*"
+DS 0 -1.5 2 0 0.15 21
+DS 2 0 0 1.5 0.15 21
+DS 2.5 1.5 2.5 -1.5 0.15 21
+DS 2 -1.5 2 1.5 0.15 21
+DS 3.5 0 3 -1.5 0.15 21
+DS 3 -1.5 -3 -1.5 0.15 21
+DS -3 -1.5 -3.5 0 0.15 21
+DS -3.5 0 -3 1.5 0.15 21
+DS -3 1.5 3 1.5 0.15 21
+DS 3 1.5 3.5 0 0.15 21
+DS -3.5 0 -5 0 0.15 21
+DS -3.5 -0.1 -5 -0.1 0.15 21
+DS -5 -0.1 -5 0.1 0.15 21
+DS -5 0.1 -3.5 0.1 0.15 21
+DS 3.5 0 5 0 0.15 21
+DS 3.5 -0.1 5 -0.1 0.15 21
+DS 5 -0.1 5 0.1 0.15 21
+DS 5 0.1 3.5 0.1 0.15 21
+$PAD
+Sh "1" C 1.8 1.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -5 0
+$EndPAD
+$PAD
+Sh "2" C 1.8 1.8 0 0 0
+Dr 0.8 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 5 0
+$EndPAD
+$SHAPE3D
+Na "discret/resistor.wrl"
+Sc 0.5 0.5 0.5
+Of 0 0 0
+Ro 0 0 0
+$EndSHAPE3D
+$EndMODULE D10_big
+$EndLIBRARY

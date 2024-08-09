@@ -1,0 +1,41 @@
+PCBNEW-LibModule-V1  Sat 23 May 2015 04:42:20 PM CEST
+# encoding utf-8
+Units mm
+$INDEX
+lm7805_standing_big
+$EndINDEX
+$MODULE lm7805_standing_big
+Po 0 0 0 15 556091A1 00000000 ~~
+Li lm7805_standing_big
+Sc 0
+AR /55301289
+Op 0 0 0
+T0 0 -1.651 1 1 0 0.15 N V 21 N "U1"
+T1 0 2.286 1 1 0 0.15 N V 21 N "LM7818CT"
+DS 6 3.22 -6 3.22 0.15 21
+DS -6 3.22 -6 -2.78 0.15 21
+DS -6 -2.78 6 -2.78 0.15 21
+DS 6 -2.78 6 3.22 0.15 21
+$PAD
+Sh "2" O 2 2 0 0 0
+Dr 1 0 0
+At STD N 00E0FFFF
+Ne 1 "GND"
+Po 0 0.02
+$EndPAD
+$PAD
+Sh "1" T 2 2 0 0 0
+Dr 1 0 0
+At STD N 00E0FFFF
+Ne 2 "N-000006"
+Po -2.54 0.02
+$EndPAD
+$PAD
+Sh "3" O 2 2 0 0 0
+Dr 1 0 0
+At STD N 00E0FFFF
+Ne 3 "VDD"
+Po 2.54 0.02
+$EndPAD
+$EndMODULE lm7805_standing_big
+$EndLIBRARY

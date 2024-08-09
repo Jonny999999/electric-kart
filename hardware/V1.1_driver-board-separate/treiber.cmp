@@ -1,0 +1,115 @@
+Cmp-Mod V01 Created by CvPcb (2013-may-18)-stable date = Sat 23 May 2015 04:42:38 PM CEST
+
+BeginCmp
+TimeStamp = /554C6DB1;
+Reference = C1;
+ValeurCmp = 330nF;
+IdModule  = C_rund;
+EndCmp
+
+BeginCmp
+TimeStamp = /554C6DB7;
+Reference = C2;
+ValeurCmp = 100nF;
+IdModule  = C_eckig;
+EndCmp
+
+BeginCmp
+TimeStamp = /553014F7;
+Reference = C3;
+ValeurCmp = 10uF;
+IdModule  = C_eckig;
+EndCmp
+
+BeginCmp
+TimeStamp = /5530155F;
+Reference = C4;
+ValeurCmp = 10uF;
+IdModule  = C_rund;
+EndCmp
+
+BeginCmp
+TimeStamp = /5530BE66;
+Reference = D1;
+ValeurCmp = DIODE;
+IdModule  = D10_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /55608EA5;
+Reference = D2;
+ValeurCmp = DIODE;
+IdModule  = D10_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /556086FF;
+Reference = P1;
+ValeurCmp = out;
+IdModule  = wago_klemme_2pol;
+EndCmp
+
+BeginCmp
+TimeStamp = /55544DE8;
+Reference = P3;
+ValeurCmp = 24V;
+IdModule  = wago_klemme_2pol;
+EndCmp
+
+BeginCmp
+TimeStamp = /55544E99;
+Reference = P4;
+ValeurCmp = signal;
+IdModule  = wago_klemme_2pol;
+EndCmp
+
+BeginCmp
+TimeStamp = /55545B24;
+Reference = P5;
+ValeurCmp = gnd;
+IdModule  = wago_klemme_2pol;
+EndCmp
+
+BeginCmp
+TimeStamp = /5530139B;
+Reference = R1;
+ValeurCmp = R;
+IdModule  = R10_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /55301227;
+Reference = R2;
+ValeurCmp = 4k7;
+IdModule  = R10_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /5530BEDA;
+Reference = R3;
+ValeurCmp = 0;
+IdModule  = R10_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /55301289;
+Reference = U1;
+ValeurCmp = LM7818CT;
+IdModule  = lm7805_standing_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /55301181;
+Reference = U2;
+ValeurCmp = SFH620A;
+IdModule  = DIP-4__300_big;
+EndCmp
+
+BeginCmp
+TimeStamp = /55301172;
+Reference = U3;
+ValeurCmp = TC429;
+IdModule  = DIP-8__300_big;
+EndCmp
+
+EndListe
