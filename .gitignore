@@ -37,3 +37,5 @@ talk.pdf
 \#auto_saved_files\#
 *.lck
 
+#drawio
+*.bkp

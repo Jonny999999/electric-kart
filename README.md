@@ -9,8 +9,11 @@ Note: The V1 firmware and PCB files were originally created in 2015, those have 
 - Audi gas pedal used as voltage divider 
 - 600A IGBT (FUJI 1MBI600PX-140-01)
 - Schottky diode
+
+## Wiring plan
+[doc/wiring-plan.drawio.pdf](doc/wiring-plan.drawio.pdf)
   
-### Photos
+## Photos
 <p align="center">
   <img src="doc/img/front-view.jpg" width="45%" />
   <img src="doc/img/rear-view_IGBT.jpg" width="52%" style="vertical-align: top;" />
@@ -54,6 +57,7 @@ Single board with controller, driver and newly added:
 - buck converter
 - relay  
   
+Date: 2024.08.06  
 Folder: [hardware/V2.0_board-ecar](hardware/V2.0_board-ecar)  
 Schematic: [hardware/V2.0_board-ecar/export/schematic.pdf](hardware/V2.0_board-ecar/export/schematic.pdf)
 <br>
@@ -68,6 +72,7 @@ Same problems as previous versions: When main batteries are used as supply for c
 ## V1.1
 **separate driver board**  
 Same control board from V1.0 but additional separate pcb with mosfet driver.  
+Date: 2015.05.24  
 Folder: [hardware/V1.1_driver-board-separate](hardware/V1.1_driver-board-separate)  
 Schematic: [hardware/V1.1_driver-board-separate/export/schematic.pdf](hardware/V1.1_driver-board-separate/export/schematic.pdf)
 <br>
@@ -80,6 +85,7 @@ Schematic: [hardware/V1.1_driver-board-separate/export/schematic.pdf](hardware/V
 
 ## V1.0
 **control board**   
+Date: 2015.05.14  
 Folder: [hardware/V1.x_control-board](hardware/V1.x_control-board)  
 Schematic: [hardware/V1.x_control-board/export/schematic.pdf](hardware/V1.x_control-board/export/schematic.pdf)
 <br>

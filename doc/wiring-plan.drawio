@@ -1,0 +1,140 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.185 Electron/31.3.1 Safari/537.36" version="24.7.5">
+  <diagram name="Page-1" id="TGFiBy8vDqQeqFf0GRsq">
+    <mxGraphModel dx="1638" dy="1102" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-1" target="PI3Mez-jtSdlTRBsSdoZ-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-1" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;b style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;UI:&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;switch (&lt;/font&gt;&lt;span style=&quot;font-size: 15px;&quot;&gt;24V Supply),&lt;/span&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Emergency stop switch,&lt;/font&gt;&lt;/span&gt;&lt;div style=&quot;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Toggle switch (light)&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;5mm LED&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;spacingLeft=9;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="101.25" y="105" width="172.5" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-2" target="PI3Mez-jtSdlTRBsSdoZ-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-2" value="&lt;b style=&quot;font-size: 25px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;Control Board&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=25;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="60" y="600" width="250" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-4" target="PI3Mez-jtSdlTRBsSdoZ-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontStyle=1;fontSize=15;strokeWidth=7;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-4" target="PI3Mez-jtSdlTRBsSdoZ-38" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-4" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;&lt;b style=&quot;font-size: 25px;&quot;&gt;IGBT, Relay&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=25;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="662.5" y="608.75" width="130" height="117.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-5" value="Control -&amp;gt; IGBT" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="360" y="612.5" width="235" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-6" value="&lt;b&gt;Oelflex 3x1.5mm&lt;sup&gt;2&lt;/sup&gt;&lt;/b&gt;&lt;div&gt;gn: Gate IGBT (through relay) [middle]&lt;/div&gt;&lt;div&gt;1: Relay (on when 24V applied) [left]&lt;/div&gt;&lt;div style=&quot;&quot;&gt;2: 24V main Battery [2x right]&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="PI3Mez-jtSdlTRBsSdoZ-5" vertex="1">
+          <mxGeometry x="10" y="28" width="225" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-9" target="PI3Mez-jtSdlTRBsSdoZ-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-9" value="Gas pedal -&amp;gt; Control" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="42.5" y="830" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-10" value="&lt;b&gt;Oelflex 3x2.5mm&lt;sup&gt;2&lt;/sup&gt;&lt;/b&gt;&lt;div&gt;gn: GND&lt;br&gt;&lt;/div&gt;&lt;div&gt;1: Signal&amp;nbsp;&lt;/div&gt;&lt;div&gt;2: 5V&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="PI3Mez-jtSdlTRBsSdoZ-9" vertex="1">
+          <mxGeometry x="10" y="28" width="120" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=none;endFill=0;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-11" target="PI3Mez-jtSdlTRBsSdoZ-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-11" value="Gas Pedal" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fontStyle=1;fontSize=25;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="47.5" y="1027.5" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-12" target="PI3Mez-jtSdlTRBsSdoZ-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-12" value="24V&lt;div style=&quot;font-size: 25px;&quot;&gt;Front Light&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;fontSize=25;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="282.5" y="1015" width="115" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-7" value="UI -&amp;gt; Control" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="37.5" y="340" width="300" height="163" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-8" value="&lt;b&gt;Oelflex 7x0.5mm&lt;sup&gt;2&lt;/sup&gt;&lt;/b&gt;&lt;div&gt;gn: 5V (from control board)&lt;/div&gt;&lt;div&gt;1: 24V (main battery from IGBT board)&lt;/div&gt;&lt;div style=&quot;&quot;&gt;2: 24V power Switch (24V to supply control board)&lt;/div&gt;&lt;div style=&quot;&quot;&gt;3: LED (Transistor out, with R - control board)&lt;/div&gt;&lt;div style=&quot;&quot;&gt;4: Switch-1 to 5V (light)&lt;/div&gt;&lt;div style=&quot;&quot;&gt;5: Switch-2 to 5V (reserve)&lt;/div&gt;&lt;div style=&quot;&quot;&gt;6: Emergency switch (24V to Relay IGBT)&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="PI3Mez-jtSdlTRBsSdoZ-7" vertex="1">
+          <mxGeometry x="10" y="28" width="290" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=5;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-8" target="PI3Mez-jtSdlTRBsSdoZ-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="185" y="530" />
+              <mxPoint x="185" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-32" value="Wiring-plan Electric Kart" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=34;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="164" y="10" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-33" value="08.08.2024" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=34;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="164" y="25" width="500" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-34" value="" style="endArrow=none;html=1;rounded=0;startArrow=none;startFill=0;dashed=1;strokeWidth=2;endFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="PI3Mez-jtSdlTRBsSdoZ-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="185" y="600" as="sourcePoint" />
+            <mxPoint x="325" y="630" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="185" y="630" />
+              <mxPoint x="285" y="630" />
+              <mxPoint x="285" y="668" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-36" value="1x2.5mm&lt;sup&gt;2&lt;/sup&gt;&lt;div style=&quot;font-size: 14px;&quot;&gt;GND&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontStyle=1;fontSize=14;strokeWidth=2;exitX=0.214;exitY=0.879;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-35" target="PI3Mez-jtSdlTRBsSdoZ-2" edge="1">
+          <mxGeometry x="-0.0029" relative="1" as="geometry">
+            <mxPoint x="515" y="465" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="463" y="447" />
+              <mxPoint x="465" y="447" />
+              <mxPoint x="465" y="540" />
+              <mxPoint x="248" y="540" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-40" value="1x50mm&lt;sup style=&quot;font-size: 15px;&quot;&gt;2&lt;/sup&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;GND&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;fontStyle=1;fontSize=15;strokeWidth=7;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-35" target="PI3Mez-jtSdlTRBsSdoZ-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="510" />
+              <mxPoint x="695" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-44" value="1x50mm&lt;sup style=&quot;font-size: 15px;&quot;&gt;2&lt;/sup&gt;&lt;div style=&quot;font-size: 15px;&quot;&gt;24V&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontStyle=1;fontSize=15;strokeWidth=7;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-35" target="PI3Mez-jtSdlTRBsSdoZ-39" edge="1">
+          <mxGeometry x="-0.2421" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-35" value="2x 12V 100Ah&lt;br style=&quot;font-size: 23px;&quot;&gt;AGM Battery" style="ellipse;whiteSpace=wrap;html=1;fontSize=23;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="420" y="370" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-38" value="2.9kW&lt;br style=&quot;font-size: 25px;&quot;&gt;Motor" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;fontSize=25;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="662.5" y="260" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-45" value="A2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontStyle=1;fontSize=15;strokeWidth=7;fillColor=#f8cecc;strokeColor=#b85450;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-39" target="PI3Mez-jtSdlTRBsSdoZ-38" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="728" y="220" />
+              <mxPoint x="728" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-39" value="Direction selector" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=25;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="650" y="100" width="155" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-42" value="D1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.225;entryY=0.087;entryDx=0;entryDy=0;entryPerimeter=0;fontStyle=1;fontSize=15;strokeWidth=7;fillColor=#f8cecc;strokeColor=#b85450;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-39" target="PI3Mez-jtSdlTRBsSdoZ-38" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-43" value="D2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.774;entryY=0.074;entryDx=0;entryDy=0;entryPerimeter=0;fontStyle=1;fontSize=15;strokeWidth=7;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" source="PI3Mez-jtSdlTRBsSdoZ-39" target="PI3Mez-jtSdlTRBsSdoZ-38" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PI3Mez-jtSdlTRBsSdoZ-46" value="FWD: D1-&amp;gt;A2&amp;nbsp; &amp;nbsp; D2-&amp;gt;24V&lt;div&gt;REV:&amp;nbsp; D1-&amp;gt;24V&amp;nbsp; D2-&amp;gt;A2&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontColor=#990099;" parent="1" vertex="1">
+          <mxGeometry x="655.63" y="50" width="143.75" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
