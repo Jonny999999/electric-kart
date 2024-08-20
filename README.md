@@ -46,8 +46,12 @@ Note: `make upload` flashes the last compiled .elf file only
 
 # PCB Versions
 ## V2.1
-Single board with supply filter and isolated 5V supply  
-(Planned / WIP)
+Single board with supply filter and 5V/GND for controller isolated from main batteries.  
+(WIP)
+
+Date: 2024.08.20  
+Folder: [hardware/V2.1_board-ecar_isolated](hardware/V2.1_board-ecar_isolated/)  
+Schematic: [hardware/V2.1_board-ecar_isolated/export/schematic.pdf](hardware/V2.1_board-ecar_isolated/export/schematic.pdf)
 
 
 ## V2.0
@@ -62,10 +66,19 @@ Folder: [hardware/V2.0_board-ecar](hardware/V2.0_board-ecar)
 Schematic: [hardware/V2.0_board-ecar/export/schematic.pdf](hardware/V2.0_board-ecar/export/schematic.pdf)
 <br>
 <br>
-<img src="hardware/V2.0_board-ecar/export/layout.svg" style="width: 60%;">
+<p align="center">
+<img src="hardware/V2.0_board-ecar/export/layout.svg" style="width: 49%;">
+<img src="doc/img/V2.0-board.jpg" width="49%" />
+</p>
 
 **Fail:**  
-Same problems as previous versions: When main batteries are used as supply for control pcb, the controller crashes at certain duty cycle. Using an isolated supply (separate battery or lab supply) there is no issue. => peaks in supply voltage were not the issue and the filter did not help.
+Same problems as previous versions: When main batteries are used as supply for control pcb, the controller crashes at certain duty cycle. Using an isolated supply (separate battery or lab supply) there is no issue. => peaks in supply voltage were not the issue and the filter did not help.  
+<br>
+**Issues:**  
+- bad GND track (driver current shifts GND level for controller)
+- bad routing overall (EMC)
+- UART connector missing
+- GND testpin missing
 
 
 
@@ -91,6 +104,9 @@ Schematic: [hardware/V1.x_control-board/export/schematic.pdf](hardware/V1.x_cont
 <br>
 <br>
 <img src="hardware/V1.x_control-board/export/layout.svg" style="width: 55%;">
+
+**Issues:**
+- separate battery for control supply is necessary, when using main battery controller crashes when motor starts
 
 **driver board on IGBT**  
 pcb on IGBT with mosfet driver and relay (only the relay on this board is still used in V2.1)    
