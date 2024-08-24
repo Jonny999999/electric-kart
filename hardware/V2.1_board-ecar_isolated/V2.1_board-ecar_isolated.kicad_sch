@@ -7004,6 +7004,16 @@
 	)
 	(wire
 		(pts
+			(xy 219.71 134.62) (xy 222.25 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "021f8c66-944a-4eec-a291-bf76174bb9ec")
+	)
+	(wire
+		(pts
 			(xy 227.33 241.3) (xy 248.92 241.3)
 		)
 		(stroke
@@ -7041,6 +7051,16 @@
 			(type default)
 		)
 		(uuid "0502caf3-137a-4e30-bb16-926575ec98ee")
+	)
+	(wire
+		(pts
+			(xy 294.64 114.3) (xy 294.64 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "052984e6-9d1b-4c95-96c4-cd078c03c8d2")
 	)
 	(wire
 		(pts
@@ -7751,16 +7771,6 @@
 			(type default)
 		)
 		(uuid "34d2f00b-c591-48b9-ac8e-326f21c8bee6")
-	)
-	(wire
-		(pts
-			(xy 219.71 129.54) (xy 219.71 138.43)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "34ef4aab-58d9-4dcb-8e9e-3f90f3ec4623")
 	)
 	(wire
 		(pts
@@ -8694,6 +8704,16 @@
 	)
 	(wire
 		(pts
+			(xy 313.69 46.99) (xy 313.69 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "776945b1-d3dc-4e26-b571-ff3402d39d82")
+	)
+	(wire
+		(pts
 			(xy 314.96 147.32) (xy 330.2 147.32)
 		)
 		(stroke
@@ -8951,16 +8971,6 @@
 			(type default)
 		)
 		(uuid "8560ce64-5bdd-4943-8433-0a4695f43518")
-	)
-	(wire
-		(pts
-			(xy 313.69 46.99) (xy 313.69 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85af91a5-1e8b-45ba-a0e0-dd736ffea597")
 	)
 	(wire
 		(pts
@@ -9764,6 +9774,16 @@
 	)
 	(wire
 		(pts
+			(xy 313.69 60.96) (xy 313.69 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b80db5ff-0875-4315-b635-7246e8175d1a")
+	)
+	(wire
+		(pts
 			(xy 354.33 133.35) (xy 354.33 148.59)
 		)
 		(stroke
@@ -10004,6 +10024,16 @@
 	)
 	(wire
 		(pts
+			(xy 298.45 119.38) (xy 298.45 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb1be3cd-7c67-406a-aaa9-8b56c0a334ec")
+	)
+	(wire
+		(pts
 			(xy 227.33 220.98) (xy 254 220.98)
 		)
 		(stroke
@@ -10234,16 +10264,6 @@
 	)
 	(wire
 		(pts
-			(xy 294.64 120.65) (xy 294.64 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dcf50e6f-b483-4936-b498-5155bafcdaa0")
-	)
-	(wire
-		(pts
 			(xy 336.55 33.02) (xy 336.55 60.96)
 		)
 		(stroke
@@ -10394,6 +10414,16 @@
 	)
 	(wire
 		(pts
+			(xy 294.64 119.38) (xy 298.45 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea179b24-ef7f-4349-8d85-6c9516a44fbc")
+	)
+	(wire
+		(pts
 			(xy 290.83 123.19) (xy 290.83 116.84)
 		)
 		(stroke
@@ -10524,16 +10554,6 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 129.54) (xy 222.25 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f258b23d-bd0c-465a-924b-36dba568efaf")
-	)
-	(wire
-		(pts
 			(xy 68.58 132.08) (xy 62.23 132.08)
 		)
 		(stroke
@@ -10611,6 +10631,16 @@
 			(type default)
 		)
 		(uuid "f9a42059-f884-4fb5-9eb0-35cfac7fc5b1")
+	)
+	(wire
+		(pts
+			(xy 219.71 138.43) (xy 219.71 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9eb7245-6504-480d-b62a-fe96e196f6b9")
 	)
 	(wire
 		(pts
@@ -11016,7 +11046,7 @@
 	)
 	(text "2x Digital input\n(Switches to 5V)"
 		(exclude_from_sim no)
-		(at 367.792 25.146 0)
+		(at 375.666 24.892 0)
 		(effects
 			(font
 				(size 2.2 2.2)
@@ -11157,7 +11187,7 @@
 		(uuid "22c04437-539d-49a8-8ba4-ff087b850bd2")
 	)
 	(label "LED"
-		(at 246.38 205.74 180)
+		(at 237.49 228.6 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11168,7 +11198,7 @@
 		(uuid "2f4e55d3-b1ed-4a02-b80a-deb1c4c1e448")
 	)
 	(label "BUZZER"
-		(at 237.49 228.6 180)
+		(at 237.49 231.14 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11267,7 +11297,7 @@
 		(uuid "6388003e-267b-4fba-97db-96e849f4b425")
 	)
 	(label "battery-threshold"
-		(at 313.69 48.26 270)
+		(at 313.69 63.5 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11366,7 +11396,7 @@
 		(uuid "abe134df-7ea6-4cbd-9b5f-3523d160cd1f")
 	)
 	(label "LED-ext"
-		(at 237.49 231.14 180)
+		(at 246.38 205.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -11374,7 +11404,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "addfa810-41b7-413b-891b-792d39223eb7")
+		(uuid "aef37370-3a37-4d71-beb1-2ef5ca14c573")
 	)
 	(label "MISO"
 		(at 90.17 226.06 0)
@@ -12312,7 +12342,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
-		(at 227.33 129.54 0)
+		(at 227.33 132.08 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12320,7 +12350,7 @@
 		(dnp no)
 		(uuid "0dda454f-603c-4ee8-a3e3-1f5878ad3367")
 		(property "Reference" "J14"
-			(at 226.314 126.746 0)
+			(at 226.314 129.286 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12328,8 +12358,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "IGBT [GND, Gate]"
-			(at 231.394 136.906 90)
+		(property "Value" "IGBT [Gate, GND]"
+			(at 231.394 139.446 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12338,7 +12368,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
-			(at 227.33 129.54 0)
+			(at 227.33 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12347,7 +12377,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 227.33 129.54 0)
+			(at 227.33 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12356,7 +12386,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 227.33 129.54 0)
+			(at 227.33 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16963,8 +16993,8 @@
 				)
 			)
 		)
-		(property "Value" "2x  Switch (to 5V)"
-			(at 339.598 24.638 90)
+		(property "Value" "2x  Switch (to 5V) [PC3, PC2]"
+			(at 342.9 23.876 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17345,6 +17375,72 @@
 			(project "V2.1_board-ecar_isolated"
 				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
 					(reference "#PWR075")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "control-rescue:R")
+		(at 313.69 54.61 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7773700f-83ed-46fa-8fca-627e2fc2b283")
+		(property "Reference" "R33"
+			(at 311.658 54.61 90)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2k2"
+			(at 313.69 55.118 90)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 315.468 54.61 90)
+			(effects
+				(font
+					(size 0.762 0.762)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 313.69 54.61 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 313.69 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "215a1259-b122-45eb-b556-b7ae5b7c66aa")
+		)
+		(pin "2"
+			(uuid "253c1bb0-3929-4c6f-a0c5-74b7f88f0814")
+		)
+		(instances
+			(project "V2.1_board-ecar_isolated"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "R33")
 					(unit 1)
 				)
 			)
@@ -18015,7 +18111,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Fan [GND-supp, Diode, Mosfet]"
+		(property "Value" "Fan [GND/Mosfet-OUT, Diode, 24V-filtered]"
 			(at 266.954 104.648 90)
 			(effects
 				(font
@@ -19039,6 +19135,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+24V")
+		(at 298.45 115.57 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "907f0154-1a85-4d35-a349-e86110149e78")
+		(property "Reference" "#PWR076"
+			(at 298.45 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+24V filtered"
+			(at 298.196 108.204 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 298.45 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 298.45 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+24V\""
+			(at 298.45 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "11f288a0-f1f4-4f55-95e4-ee59bba4818a")
+		)
+		(instances
+			(project "V2.1_board-ecar_isolated"
+				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
+					(reference "#PWR076")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
 		(at 35.56 260.35 90)
 		(unit 1)
@@ -19188,7 +19349,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "5V, 5V-decoupled"
+		(property "Value" "[5V, 5V-decoupled]"
 			(at 74.676 220.726 90)
 			(effects
 				(font
@@ -19661,8 +19822,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "ADC reserve"
-			(at 212.09 36.8301 0)
+		(property "Value" "ADC reserve [5V, in, GND]"
+			(at 217.932 26.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21557,72 +21718,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GNDPWR")
-		(at 294.64 120.65 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cda63b70-8f5b-49cb-a6cf-b328afcb7a2d")
-		(property "Reference" "#PWR045"
-			(at 294.64 125.73 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GNDPWR"
-			(at 294.513 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 294.64 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 294.64 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
-			(at 294.64 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2a74ef9e-be1f-43e6-b090-b96fd7f50274")
-		)
-		(instances
-			(project "V2.1_board-ecar_isolated"
-				(path "/5b898ce7-7cb2-4d45-8284-d2f49c9d3242"
-					(reference "#PWR045")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+15V")
 		(at 41.91 251.46 0)
 		(unit 1)
@@ -21969,7 +22064,7 @@
 				)
 			)
 		)
-		(property "Value" "ST 2x GND  5V"
+		(property "Value" "2x GND (5V)"
 			(at 29.21 216.154 0)
 			(effects
 				(font
@@ -24067,24 +24162,21 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fcb20113-996b-49d8-9534-125f7e9d22c9")
 		(property "Reference" "J7"
-			(at 166.37 36.8301 0)
+			(at 168.91 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Gas Pedal"
-			(at 166.37 34.2901 0)
+		(property "Value" "Gas Pedal  [5V, In, GND]"
+			(at 165.1 37.084 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "TerminalBlock:TerminalBlock_bornier-3_P5.08mm"
