@@ -23,20 +23,20 @@
 #define CLEAR_PWM0 (PWM0_PORT &= ~(1<<PB1))
 
 // MOSFET (output) MOSFET
-#define MOSFET PB2
-#define MOSFET_PORT PORTB
-#define MOSFET_DDR DDRB
-#define MOSFET_PIN PINB
-#define SET_MOSFET (MOSFET_PORT |= (1<<PB2))
-#define CLEAR_MOSFET (MOSFET_PORT &= ~(1<<PB2))
+#define MOSFET PD4
+#define MOSFET_PORT PORTD
+#define MOSFET_DDR DDRD
+#define MOSFET_PIN PIND
+#define SET_MOSFET (MOSFET_PORT |= (1<<PD4))
+#define CLEAR_MOSFET (MOSFET_PORT &= ~(1<<PD4))
 
 // RELAY (output) RELAY
-#define RELAY PB7
-#define RELAY_PORT PORTB
-#define RELAY_DDR DDRB
-#define RELAY_PIN PINB
-#define SET_RELAY (RELAY_PORT |= (1<<PB7))
-#define CLEAR_RELAY (RELAY_PORT &= ~(1<<PB7))
+#define RELAY PD3
+#define RELAY_PORT PORTD
+#define RELAY_DDR DDRD
+#define RELAY_PIN PIND
+#define SET_RELAY (RELAY_PORT |= (1<<PD3))
+#define CLEAR_RELAY (RELAY_PORT &= ~(1<<PD3))
 
 // ANALOG0 (input) - reserve
 #define ANALOG0 PC0
@@ -48,77 +48,77 @@
 #define CLEAR_PULLUP_ANALOG0 (ANALOG0_PORT &= ~(1<<PC0))
 
 // ANALOG_GAS_PEDAL (input)
-#define ANALOG_GAS_PEDAL PC2
+#define ANALOG_GAS_PEDAL PC1
 #define ANALOG_GAS_PEDAL_PORT PORTC
 #define ANALOG_GAS_PEDAL_DDR DDRC
 #define ANALOG_GAS_PEDAL_PIN PINC
-#define IS_HIGH_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PIN & (1<<PC2))
-#define SET_PULLUP_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PORT |= (1<<PC2))
-#define CLEAR_PULLUP_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PORT &= ~(1<<PC2))
+#define IS_HIGH_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PIN & (1<<PC1))
+#define SET_PULLUP_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PORT |= (1<<PC1))
+#define CLEAR_PULLUP_ANALOG_GAS_PEDAL (ANALOG_GAS_PEDAL_PORT &= ~(1<<PC1))
 
 // Note: ANALOG batt measurement not added yet
 
 // LED_ONBOARD (output) onbard
-#define LED_ONBOARD PC3
+#define LED_ONBOARD PC4
 #define LED_ONBOARD_PORT PORTC
 #define LED_ONBOARD_DDR DDRC
 #define LED_ONBOARD_PIN PINC
-#define SET_LED_ONBOARD (LED_ONBOARD_PORT |= (1<<PC3))
-#define CLEAR_LED_ONBOARD (LED_ONBOARD_PORT &= ~(1<<PC3))
+#define SET_LED_ONBOARD (LED_ONBOARD_PORT |= (1<<PC4))
+#define CLEAR_LED_ONBOARD (LED_ONBOARD_PORT &= ~(1<<PC4))
 
 // LED_EXTERNAL (output) external
-#define LED_EXTERNAL PC5
-#define LED_EXTERNAL_PORT PORTC
-#define LED_EXTERNAL_DDR DDRC
-#define LED_EXTERNAL_PIN PINC
-#define SET_LED_EXTERNAL (LED_EXTERNAL_PORT |= (1<<PC5))
-#define CLEAR_LED_EXTERNAL (LED_EXTERNAL_PORT &= ~(1<<PC5))
+#define LED_EXTERNAL PB2
+#define LED_EXTERNAL_PORT PORTB
+#define LED_EXTERNAL_DDR DDRB
+#define LED_EXTERNAL_PIN PINB
+#define SET_LED_EXTERNAL (LED_EXTERNAL_PORT |= (1<<PB2))
+#define CLEAR_LED_EXTERNAL (LED_EXTERNAL_PORT &= ~(1<<PB2))
 
 // BUZZER (output
-#define BUZZER PC4
+#define BUZZER PC5
 #define BUZZER_PORT PORTC
 #define BUZZER_DDR DDRC
 #define BUZZER_PIN PINC
-#define SET_BUZZER (LED_EXTERNAL_PORT |= (1<<PC4))
-#define CLEAR_BUZZER (LED_EXTERNAL_PORT &= ~(1<<PC4))
+#define SET_BUZZER (BUZZER_PORT |= (1<<PC5))
+#define CLEAR_BUZZER (BUZZER_PORT &= ~(1<<PC5))
 
 // SW1 (input)
-#define SW1 PD2
-#define SW1_PORT PORTD
-#define SW1_DDR DDRD
-#define SW1_PIN PIND
-#define IS_HIGH_SW1 (SW1_PIN & (1<<PD2))
-#define SET_PULLUP_SW1 (SW1_PORT |= (1<<PD2))
-#define CLEAR_PULLUP_SW1 (SW1_PORT &= ~(1<<PD2))
+#define SW1 PC2
+#define SW1_PORT PORTC
+#define SW1_DDR DDRC
+#define SW1_PIN PINC
+#define IS_HIGH_SW1 (SW1_PIN & (1<<PC2))
+#define SET_PULLUP_SW1 (SW1_PORT |= (1<<PC2))
+#define CLEAR_PULLUP_SW1 (SW1_PORT &= ~(1<<PC2))
 
 // SW0 (input)
-#define SW0 PD3
-#define SW0_PORT PORTD
-#define SW0_DDR DDRD
-#define SW0_PIN PIND
-#define IS_HIGH_SW0 (SW0_PIN & (1<<PD3))
-#define SET_PULLUP_SW0 (SW0_PORT |= (1<<PD3))
-#define CLEAR_PULLUP_SW0 (SW0_PORT &= ~(1<<PD3))
+#define SW0 PC3
+#define SW0_PORT PORTC
+#define SW0_DDR DDRC
+#define SW0_PIN PINC
+#define IS_HIGH_SW0 (SW0_PIN & (1<<PC3))
+#define SET_PULLUP_SW0 (SW0_PORT |= (1<<PC3))
+#define CLEAR_PULLUP_SW0 (SW0_PORT &= ~(1<<PC3))
 
 
 void io_init(){
-  PWM0_DDR |= (1<<PB1);
-  PWM0_PORT &= ~(1<<PB1);
+  PWM0_DDR |= (1<<PWM0);
+  PWM0_PORT &= ~(1<<PWM0);
 
-  MOSFET_DDR |= (1<<PB2);
-  MOSFET_PORT &= ~(1<<PB2);
-  RELAY_DDR |= (1<<PB7);
-  RELAY_PORT &= ~(1<<PB7);
-  ANALOG0_DDR &= ~(1<<PC0);
-  ANALOG_GAS_PEDAL_DDR &= ~(1<<PC2);
-  LED_ONBOARD_DDR |= (1<<PC3);
-  LED_ONBOARD_PORT &= ~(1<<PC3);
-  LED_EXTERNAL_DDR |= (1<<PC5);
-  LED_EXTERNAL_PORT &= ~(1<<PC5);
-  BUZZER_DDR |= (1<<PC4);
-  BUZZER_PORT &= ~(1<<PC4);
-  SW1_DDR &= ~(1<<PD2);
-  SW0_DDR &= ~(1<<PD3);
+  MOSFET_DDR |= (1<<MOSFET);
+  MOSFET_PORT &= ~(1<<MOSFET);
+  RELAY_DDR |= (1<<RELAY);
+  RELAY_PORT &= ~(1<<RELAY);
+  ANALOG0_DDR &= ~(1<<ANALOG0);
+  ANALOG_GAS_PEDAL_DDR &= ~(1<<ANALOG_GAS_PEDAL);
+  LED_ONBOARD_DDR |= (1<<LED_ONBOARD);
+  LED_ONBOARD_PORT &= ~(1<<LED_ONBOARD);
+  LED_EXTERNAL_DDR |= (1<<LED_EXTERNAL);
+  LED_EXTERNAL_PORT &= ~(1<<LED_EXTERNAL);
+  BUZZER_DDR |= (1<<BUZZER);
+  BUZZER_PORT &= ~(1<<BUZZER);
+  SW1_DDR &= ~(1<<SW0);
+  SW0_DDR &= ~(1<<SW1);
 }
 
 
@@ -206,6 +206,33 @@ for (int i=0; i<3; i++) {
   CLEAR_BUZZER;
   _delay_ms(100);
 }
+
+
+//=== test IO ===
+//test relay
+  _delay_ms(100);
+SET_RELAY;
+  _delay_ms(300);
+CLEAR_RELAY;
+
+//test/turn on led
+SET_LED_ONBOARD;
+SET_LED_EXTERNAL;
+  _delay_ms(200);
+CLEAR_LED_ONBOARD;
+CLEAR_LED_EXTERNAL;
+  _delay_ms(200);
+SET_LED_ONBOARD;
+SET_LED_EXTERNAL;
+  _delay_ms(200);
+
+//test/turn off fan
+SET_MOSFET; //off
+  _delay_ms(200);
+CLEAR_MOSFET; //on
+  _delay_ms(500);
+SET_MOSFET; //off
+
 
 
   uint8_t pwm_enabled = 1;
