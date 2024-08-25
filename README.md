@@ -1,5 +1,5 @@
 Firmware for Atmega-8 Microcontroller and kicad PCB-Files for a custom built electric kart.  
-Note: The V1 firmware and PCB files were originally created in 2015, those have been added to this repository for archival purposes.
+**Note:** The firmware and PCB files Version V1 were originally created in 2015, those have been added to this repository for archival purposes.
 
 # Hardware Overview (vehicle)
 - 2.9 kW Series wound motor (forklift)
@@ -46,12 +46,28 @@ Note: `make upload` flashes the last compiled .elf file only
 
 # PCB Versions
 ## V2.1
-Single board with supply filter and 5V/GND for controller isolated from main batteries.  
-(WIP)
+Rework of version V2.0 with more effort put into EMC to fix controller resets:
+- 2 layer board
+- 5V/GND for controller completely isolated from main batteries
+  - isolated 5V DC-DC converter IC
+  - more optocouplers: for driver, mosfet, relay and batt-voltage-threshold
+- Strictly separate 5V and 24V components (separate GND planes, isolation gap)
+- Front side is GND layer, Back side also has GND zones
 
 Date: 2024.08.20  
 Folder: [hardware/V2.1_board-ecar_isolated](hardware/V2.1_board-ecar_isolated/)  
 Schematic: [hardware/V2.1_board-ecar_isolated/export/schematic.pdf](hardware/V2.1_board-ecar_isolated/export/schematic.pdf)
+<br>
+<br>
+<p align="center">
+<img src="hardware/V2.1_board-ecar_isolated/export/layout-back.svg" width="49%" />
+<img src="hardware/V2.1_board-ecar_isolated/export/layout-front.svg" width="49%" />
+</p>
+<p align="center">
+<img src="hardware/V2.1_board-ecar_isolated/export/layout-no-zone.svg" width="49%" />
+<img src="doc/img/V2.1-board.jpg" width="49%" />
+</p>
+
 
 
 ## V2.0
@@ -72,7 +88,8 @@ Schematic: [hardware/V2.0_board-ecar/export/schematic.pdf](hardware/V2.0_board-e
 </p>
 
 **Fail:**  
-Same problems as previous versions: When main batteries are used as supply for control pcb, the controller crashes at certain duty cycle. Using an isolated supply (separate battery or lab supply) there is no issue. => peaks in supply voltage were not the issue and the filter did not help.  
+Same problems as previous versions: When main batteries are used as supply for control pcb, the controller crashes at certain duty cycle.  
+When Using an isolated supply (separate battery or lab supply) there is no issue. => peaks in supply voltage were not the issue and the filter did not really help, except preventing the voltage-regulators from burning out.  
 <br>
 **Issues:**  
 - bad GND track (driver current shifts GND level for controller)
