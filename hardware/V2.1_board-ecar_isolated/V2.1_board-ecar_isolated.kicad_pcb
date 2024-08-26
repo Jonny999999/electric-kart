@@ -3359,9 +3359,9 @@
 			(pintype "passive")
 			(uuid "403c4e21-9b25-4993-a005-5fe35447abe5")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-3_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 5.079999924 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -14829,9 +14829,9 @@
 			(pintype "passive")
 			(uuid "1cea4e7f-4b79-4ee2-adfe-4ccbebe9a641")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-3_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 5.079999924 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -18794,9 +18794,9 @@
 			(pintype "passive")
 			(uuid "a4b23fdf-50a2-4a44-858e-77b6cf931134")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -22698,9 +22698,9 @@
 			(pintype "passive")
 			(uuid "643fb51d-677f-4ef9-98aa-7d56bc1b727c")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -25228,9 +25228,9 @@
 			(pintype "passive")
 			(uuid "f6945886-dd6e-4d40-87de-4fc9f69f3a28")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -27790,9 +27790,9 @@
 			(pintype "passive")
 			(uuid "5e9b37ff-580e-42a3-8e4a-a17e94bf728e")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -31337,9 +31337,9 @@
 			(pintype "passive")
 			(uuid "69d9738c-03c3-488b-9605-9dd5813e8a91")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-3_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 5.079999924 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -33537,7 +33537,7 @@
 			(pintype "bidirectional")
 			(uuid "7ab5c9ad-394b-4d8e-bae5-7437a03917f5")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/Package_DIP.3dshapes/CERDIP-28_W7.62mm_SideBrazed_LongPads_Socket.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/Package_DIP.3dshapes/DIP-28_W7.62mm.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -38210,6 +38210,17 @@
 			(solder_mask_margin 0.102)
 			(uuid "07530387-4449-4fac-a8c2-7ab7d984d2ac")
 		)
+		(model "${KICAD8_3DMODEL_DIR}/RSO-2405S.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 90 180 180)
+			)
+		)
 	)
 	(footprint "Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical"
 		(layer "F.Cu")
@@ -38999,9 +39010,9 @@
 			(pintype "passive")
 			(uuid "1f6dc1f0-de27-43c9-9ed4-227b5261fd7a")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-3_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-3-5.0-H_1x03_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 5.079999924 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -40032,9 +40043,9 @@
 			(pintype "passive")
 			(uuid "15cf15f1-cf80-404f-bec7-6d9f7477e816")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -40830,9 +40841,9 @@
 			(pintype "passive")
 			(uuid "226996a8-c264-42f5-8e85-ca547b632dc0")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -41064,9 +41075,9 @@
 			(pintype "passive")
 			(uuid "81a6c0e3-37e7-4d52-83d4-bd5427f6e14d")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Piher_PT-10-V10_Vertical.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/Potentiometer_THT.3dshapes/Potentiometer_Bourns_3339P_Vertical.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 5 0.4 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -46508,9 +46519,9 @@
 			(pintype "passive")
 			(uuid "168718da-9ea0-4532-83f2-56c0c0675096")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -47579,9 +47590,9 @@
 			(pintype "passive")
 			(uuid "76c3590b-75b8-4acc-b051-e0c5a2e77845")
 		)
-		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock.3dshapes/TerminalBlock_bornier-2_P5.08mm.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal.step"
 			(offset
-				(xyz 2.539999962 0 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)

@@ -10841,8 +10841,8 @@
 		(uuid 01731e0d-ad38-485b-8595-e71aeb42b013)
 	)
 	(rectangle
-		(start 326.39 18.796)
-		(end 390.144 84.328)
+		(start 326.39 16.51)
+		(end 390.144 86.36)
 		(stroke
 			(width 0)
 			(type default)
@@ -11159,7 +11159,7 @@
 	)
 	(text "2x Digital input\n(Switches to 5V)"
 		(exclude_from_sim no)
-		(at 375.666 23.622 0)
+		(at 375.412 21.844 0)
 		(effects
 			(font
 				(size 2.2 2.2)
