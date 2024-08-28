@@ -1,6 +1,8 @@
 Firmware for Atmega-8 Microcontroller and kicad PCB-Files for a custom built electric kart.  
 **Note:** The firmware and PCB files Version V1 were originally created in 2015, those have been added to this repository for archival purposes.
 
+<br>
+
 # Hardware Overview (vehicle)
 - 2.9 kW Series wound motor (forklift)
 - Custom pcb with Atmega-8 creating 124 Hz PWM
@@ -20,6 +22,8 @@ Firmware for Atmega-8 Microcontroller and kicad PCB-Files for a custom built ele
 </p>
 
 
+
+<br>
 
 # Firmware
 ## Requirements
@@ -42,9 +46,14 @@ sudo make upload
 Note: `make upload` flashes the last compiled .elf file only  
 -> also run `make` first for compiling and flashing the latest version.
 
+## Current version
+The current actually used project is located in [firmware/V2.1/](firmware/V2.1/).  
+All other folders in [firmware/](firmware/) are for old board versions thus no longer used and archive only.
 
 
-# PCB Versions
+<br>
+
+# Hardware (PCB Versions)
 ## V2.1
 Rework of version V2.0 with more effort put into EMC to fix controller resets:
 - 2 layer board
