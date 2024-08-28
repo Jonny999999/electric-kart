@@ -39,3 +39,8 @@ talk.pdf
 
 #drawio
 *.bkp
+
+
+#freecad
+*.FCBak
+*.stl
