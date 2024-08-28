@@ -26,43 +26,43 @@ ekartConfig_t configs[] = {
       { //122 Hz (V1) []
         .pwmResolution = 1023,
         .pwmPrescaler = 64,
-        .fanTurnOffDelay = 5000,
-        .fanTurnOnDelay = 8000,
-        .fanTurnOnDuty = 30
+        .fanTurnOffDelay = 10000,
+        .fanTurnOnDelay = 2000,
+        .fanTurnOnDuty = 10
     },
         { //244 Hz
         .pwmResolution = 511,
         .pwmPrescaler = 64,
-        .fanTurnOffDelay = 5000,
-        .fanTurnOnDelay = 8000,
-        .fanTurnOnDuty = 30
+        .fanTurnOffDelay = 15000,
+        .fanTurnOnDelay = 2000,
+        .fanTurnOnDuty = 10
     },
       { //977 Hz (V1) []
         .pwmResolution = 1023,
         .pwmPrescaler = 8,
-        .fanTurnOffDelay = 5000,
-        .fanTurnOnDelay = 5000,
-        .fanTurnOnDuty = 20
+        .fanTurnOffDelay = 20000,
+        .fanTurnOnDelay = 2000,
+        .fanTurnOnDuty = 10
     },
       { //3.9 kHz []
         .pwmResolution = 255,
         .pwmPrescaler = 8,
-        .fanTurnOffDelay = 10000,
-        .fanTurnOnDelay = 3000,
+        .fanTurnOffDelay = 20000,
+        .fanTurnOnDelay = 1000,
         .fanTurnOnDuty = 0
     },
       { //7.8 kHz (default)
         .pwmResolution = 1023,
         .pwmPrescaler = 1,
-        .fanTurnOffDelay = 15000,
-        .fanTurnOnDelay = 3000,
+        .fanTurnOffDelay = 20000,
+        .fanTurnOnDelay = 1000,
         .fanTurnOnDuty = 0
     },
       { //15.6 kHz (note: gets hot fast)
         .pwmResolution = 511,
         .pwmPrescaler = 1,
-        .fanTurnOffDelay = 30000,
-        .fanTurnOnDelay = 2000,
+        .fanTurnOffDelay = 50000,
+        .fanTurnOnDelay = 500,
         .fanTurnOnDuty = 0
     },
 };
@@ -107,6 +107,7 @@ uint8_t selectedConfigIndex = 4;
 #define GAS_PEDAL_MIN 90 // actual 82
 #define GAS_PEDAL_MAX 542 //actual 543
 
+#define DUTY_PERCENT_SLOW_MODE 45 //max duty percent in slow mode (long button press)
 
 
 
@@ -122,8 +123,8 @@ GPIO_Pin ledExternal = {PB2, &PORTB, &DDRB, &PINB};
 GPIO_Pin buzzer = {PC5, &PORTC, &DDRC, &PINC};
 
 //inputs
-GPIO_Pin switch1 = {PC3, &PORTC, &DDRC, &PINC};
-GPIO_Pin switch2 = {PC2, &PORTC, &DDRC, &PINC};
+GPIO_Pin switch1 = {PC2, &PORTC, &DDRC, &PINC};
+GPIO_Pin switch2 = {PC3, &PORTC, &DDRC, &PINC};
 GPIO_Pin analog = {PC0, &PORTC, &DDRC, &PINC};
 GPIO_Pin gasPedal = {PC1, &PORTC, &DDRC, &PINC};
 GPIO_Pin batteryThreshold = {PD2, &PORTD, &DDRD, &PIND};
@@ -190,6 +191,7 @@ int Timer1_FastPWM_Init(uint16_t resolution, uint8_t prescaler)
   DDRB |= (1 << PB1);
   // If using OC1B, set PB2 as output
   // DDRB |= (1 << PB2);
+  return 0;
 }
 
 void disable_pwm(){
@@ -282,12 +284,17 @@ int main(void)
   uint32_t gasPedalAdc;
   uint8_t pwmEnabled = 0;
   motorState_t state = FULL_OFF;
+  motorState_t statePrev = FULL_OFF;
   uint16_t duty = 0;
   uint32_t time = 0;
   uint32_t timestamp_turnedOn = 0;
   uint32_t timestamp_turnedOff = 0;
   // edge detection
   uint8_t switchPrevious = 0;
+  uint32_t timestamp_buttonPressed = 0;
+
+  uint16_t maxDutyPercent = 100;
+  uint8_t lock = 0;
 
   //==== loop ====
   while (1)
@@ -315,7 +322,7 @@ int main(void)
       // set pin constantly low = full off
       GPIO_Clear(&pwm);
     }
-    else if (gasPedalAdc >= GAS_PEDAL_MAX) // pedal fully pressed
+    else if ((gasPedalAdc >= GAS_PEDAL_MAX) && (maxDutyPercent == 100)) // pedal fully pressed
     {
       state = FULL_ON;
       // turn off pwm for full on
@@ -338,7 +345,7 @@ int main(void)
       }
       // define duty
       // scale pedal input to pwm value
-      duty = (gasPedalAdc - GAS_PEDAL_MIN) * conf.pwmResolution / (GAS_PEDAL_MAX - GAS_PEDAL_MIN);
+      duty = (gasPedalAdc - GAS_PEDAL_MIN) * conf.pwmResolution * maxDutyPercent / 100 / (GAS_PEDAL_MAX - GAS_PEDAL_MIN);
 
 
       // update duty
@@ -368,55 +375,109 @@ int main(void)
     GPIO_SetLevel(&ledOnboard, (gasPedalAdc >= GAS_PEDAL_MIN));
 
 
+    //=== external LED ===
+    // always on except its blinked elsewhere
+    GPIO_Set(&ledExternal);
+
+
 
     //=== fan ===
     // note: output is inverted
     // turn fan on when motor on and above thresholds
-    if (state != FULL_OFF && duty > conf.fanTurnOnDuty && time - timestamp_turnedOn > conf.fanTurnOnDelay)
+    uint32_t timeOn = time - timestamp_turnedOn;
+    if (state != FULL_OFF &&  (duty >= conf.fanTurnOnDuty) && ((time-timestamp_turnedOn) > conf.fanTurnOnDelay))
       GPIO_Clear(&fan); // turn on
 
     // turn fan off when motor off long enough
-    else if (state == FULL_OFF && (time - timestamp_turnedOff) > conf.fanTurnOffDelay)
+    else if (state == FULL_OFF && ((time - timestamp_turnedOff) > conf.fanTurnOffDelay))
       GPIO_Set(&fan); // turn off
 
-    // manual control via switch near emergency stop
-    // GPIO_SetLevel(&fan, !(GPIO_Read(&switch2)));
+    // printf("time=%d, ", time);
+    // printf("turnedon=%d", timestamp_turnedOn);
+    // printf("timeon=%d\n", timeOn);
+    //  manual control via switch near emergency stop
+    //  GPIO_SetLevel(&fan, !(GPIO_Read(&switch2)));
 
 
 
-    //=== Relay ===
+    //=== Switch, Relay ===
     // on when switch1 is high (currently not connected)
     GPIO_SetLevel(&relay, GPIO_Read(&switch1));
 
 
-
-    //=== cycle through configs ===
+    //==== handle Button ====
     uint8_t switchNow = GPIO_Read(&switch2);
+    uint32_t timePressed = time - timestamp_buttonPressed; //TODO: only calculate this when switchLast is 1 otherwise 0 and reset lock?
+
     if (switchPrevious == 0 && switchNow == 1) // rising edge
     {
-      selectedConfigIndex++;
-      if (selectedConfigIndex >= configCount) //rotate back first index
-        selectedConfigIndex = 0;
-      printf("cycled config index to %d", selectedConfigIndex);
-      beep(4);
-      _delay_ms(600);
-      beep(selectedConfigIndex);
+      timestamp_buttonPressed = time;
     }
+
+    else if (switchPrevious == 1 && switchNow == 0) // falling edge
+    {
+      if (timePressed < 1000) //short press
+      {
+    //--- cycle through configs ---
+        selectedConfigIndex++;
+        if (selectedConfigIndex >= configCount) // rotate back first index
+          selectedConfigIndex = 0;
+        printf("cycled config index to %d", selectedConfigIndex);
+        beep(2);
+      }
+    }
+
+    else if ((switchNow == 1 && timePressed > 1000) && !lock) //long press
+    {
+      //--- toggle slow mode ---
+      if (maxDutyPercent != 100) // enter normal mode (full speed)
+      {
+        maxDutyPercent = 100;
+        GPIO_Set(&buzzer);
+        _delay_ms(200);
+        GPIO_Clear(&buzzer);
+      }
+      else  //enter slow mode
+      {
+        maxDutyPercent = DUTY_PERCENT_SLOW_MODE;
+        GPIO_Set(&buzzer);
+        _delay_ms(1500);
+        GPIO_Clear(&buzzer);
+      }
+      lock = 1; // prevent multiple runs while still pressed
+    }
+    else if (switchNow == 0) // released
+    {
+      lock = 0; // reset long pressed lock
+    }
+
+    // update previous switch state
     switchPrevious = switchNow;
+
 
 
 
     //=== Voltage-Threshold ===
     //beep when battery below voltage threshold (opamp+potentiometer)
     //pass through batt threshold signal to buzzer
-    GPIO_SetLevel(&buzzer, !(GPIO_Read(&batteryThreshold)));
+    //GPIO_SetLevel(&buzzer, !(GPIO_Read(&batteryThreshold)));
+
+    //when below voltage threshold: beep every time when pedal gets released
+    if (statePrev == PWM && state == FULL_OFF && !(GPIO_Read(&batteryThreshold))) // pedal just fully released and battery low
+    {
+      GPIO_Set(&buzzer);
+      _delay_ms(800);
+      GPIO_Clear(&buzzer);
+    }
+    // update last state
+    statePrev = state;
 
 
 
     //=== track time since startup ===
     // (approx since execution is not taken into account, e.g. uart)
     // TODO: use timer for this
-    _delay_ms(10);
-    time+=10; //TODO: overflows in 49 days
+    _delay_ms(1);
+    time+=60; //TODO: overflows in 49 days
   }
 }
