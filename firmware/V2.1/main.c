@@ -2,17 +2,78 @@
 #include "usart.h"
 #include "adc.h"
 #include "gpio.h"
+#include <avr/wdt.h>
 
+// struct that configures PWM and fan settings
+typedef struct
+{
+  // Maximum count value for Fast PWM
+  // Possible values: 1023(10Bit), 511(9Bit), 255(8Bit)
+  uint16_t pwmResolution;
+
+  // Factor clock is reduced before counting up the value
+  // Possible values: 1, 8, 64, 256, 1024
+  uint8_t pwmPrescaler;
+
+  uint32_t fanTurnOffDelay;
+  uint32_t fanTurnOnDelay;
+  uint32_t fanTurnOnDuty;
+} ekartConfig_t;
+
+
+// define multiple config presets, those can be switched between / selected at runtime
+ekartConfig_t configs[] = {
+      { //122 Hz (V1) []
+        .pwmResolution = 1023,
+        .pwmPrescaler = 64,
+        .fanTurnOffDelay = 5000,
+        .fanTurnOnDelay = 8000,
+        .fanTurnOnDuty = 30
+    },
+        { //244 Hz
+        .pwmResolution = 511,
+        .pwmPrescaler = 64,
+        .fanTurnOffDelay = 5000,
+        .fanTurnOnDelay = 8000,
+        .fanTurnOnDuty = 30
+    },
+      { //977 Hz (V1) []
+        .pwmResolution = 1023,
+        .pwmPrescaler = 8,
+        .fanTurnOffDelay = 5000,
+        .fanTurnOnDelay = 5000,
+        .fanTurnOnDuty = 20
+    },
+      { //3.9 kHz []
+        .pwmResolution = 255,
+        .pwmPrescaler = 8,
+        .fanTurnOffDelay = 10000,
+        .fanTurnOnDelay = 3000,
+        .fanTurnOnDuty = 0
+    },
+      { //7.8 kHz (default)
+        .pwmResolution = 1023,
+        .pwmPrescaler = 1,
+        .fanTurnOffDelay = 15000,
+        .fanTurnOnDelay = 3000,
+        .fanTurnOnDuty = 0
+    },
+      { //15.6 kHz (note: gets hot fast)
+        .pwmResolution = 511,
+        .pwmPrescaler = 1,
+        .fanTurnOffDelay = 30000,
+        .fanTurnOnDelay = 2000,
+        .fanTurnOnDuty = 0
+    },
+};
+
+uint8_t configCount = sizeof(configs)/sizeof(ekartConfig_t);
+// default config
+uint8_t selectedConfigIndex = 4;
 
 //====================
 //==== PWM-config ====
 //====================
-// Maximum count value for Fast PWM 
-#define PWM_RESOLUTION 1023 //Possible values: 1023(10Bit), 511(9Bit), 255(8Bit)
-
-// Factor clock is reduced before counting up the value
-#define PWM_PRESCALER 1 // Possible values: 1, 8, 64, 256, 1024
-
 //Pre-calculated possible combinations:
 /*
 |  Resolution  |  Prescaler  |  PWM-Freq @ 8MHz  |  Comment  |
@@ -36,11 +97,7 @@
 */
 
 // Calculate PWM frequency for logging
-#define PWM_FREQUENCY (F_CPU / PWM_PRESCALER / (PWM_RESOLUTION + 1))
-// helper functions for logging macro
-#define STR_HELPER(x) #x
-#define STR(x) STR_HELPER(x)
-#pragma message "Resulting PWM-Frequency is: " STR(PWM_FREQUENCY) "  Hz"
+#define PWM_FREQUENCY(PWM_PRESCALER, PWM_RESOLUTION) ((F_CPU) / (PWM_PRESCALER) / ((PWM_RESOLUTION) + 1))
 
 
 
@@ -50,8 +107,6 @@
 #define GAS_PEDAL_MIN 90 // actual 82
 #define GAS_PEDAL_MAX 542 //actual 543
 
-#define FAN_TURN_ON_DUTY 50
-#define FAN_TURN_OFF_DELAY_MS 3000
 
 
 
@@ -96,34 +151,35 @@ void init_gpios(){
 //=====================
 //===== functions =====
 //=====================
-void Timer1_FastPWM_Init(void)
+//returns 1 if a parameter was not an allowed value
+int Timer1_FastPWM_Init(uint16_t resolution, uint8_t prescaler)
 {
   // Set pwm mode Fast-PWM with selected resolution
   // Mode 5-7 Datasheet page 98 Table 39
-  #if PWM_RESOLUTION == 1023
-  TCCR1A = (1 << WGM10) | (1 << WGM11); // Mode 7: Fast PWM, 10-bit
-  #elif PWM_RESOLUTION == 511
-  TCCR1A = (0 << WGM10) | (1 << WGM11); // Mode 6: Fast PWM, 9-bit
-  #elif PWM_RESOLUTION == 255
-  TCCR1A = (1 << WGM10) | (0 << WGM11); // Mode 5: Fast PWM, 8-bit
-  #else
-    #error "invalid PWM_RESOLUTION value"
-  #endif
+  if (resolution == 1023)
+    TCCR1A = (1 << WGM10) | (1 << WGM11); // Mode 7: Fast PWM, 10-bit
+  else if (resolution == 511)
+    TCCR1A = (0 << WGM10) | (1 << WGM11); // Mode 6: Fast PWM, 9-bit
+  else if (resolution == 255)
+    TCCR1A = (1 << WGM10) | (0 << WGM11); // Mode 5: Fast PWM, 8-bit
+  else
+    // invalid resolution value
+    return 1;
 
-// Set the prescaler based on the selected value
-#if PWM_PRESCALER == 1
-  TCCR1B = (1 << WGM12) | (1 << CS10); // No prescaling
-#elif PWM_PRESCALER == 8
-  TCCR1B = (1 << WGM12) | (1 << CS11); // Prescaler = 8
-#elif PWM_PRESCALER == 64
-  TCCR1B = (1 << WGM12) | ((1 << CS11) | (1 << CS10)); // Prescaler = 64
-#elif PWM_PRESCALER == 256
-  TCCR1B = (1 << WGM12) | (1 << CS12); // Prescaler = 256
-#elif PWM_PRESCALER == 1024
-  TCCR1B = (1 << WGM12) | ((1 << CS12) | (1 << CS10)); // Prescaler = 1024
-#else
-#error "Invalid PWM_PRESCALER value"
-#endif
+  // Set the prescaler based on the selected value
+  if (prescaler == 1)
+    TCCR1B = (1 << WGM12) | (1 << CS10); // No prescaling
+  else if (prescaler == 8)
+    TCCR1B = (1 << WGM12) | (1 << CS11); // Prescaler = 8
+  else if (prescaler == 64)
+    TCCR1B = (1 << WGM12) | ((1 << CS11) | (1 << CS10)); // Prescaler = 64
+  else if (prescaler == 256)
+    TCCR1B = (1 << WGM12) | (1 << CS12); // Prescaler = 256
+  else if (prescaler == 8)
+    TCCR1B = (1 << WGM12) | ((1 << CS12) | (1 << CS10)); // Prescaler = 1024
+  else
+    // invalid prescaler value
+    return 1;
 
   // Set non-inverting mode
   TCCR1A |= (1 << COM1A1); // Clear OC1A on Compare Match, set OC1A at BOTTOM
@@ -142,18 +198,26 @@ void disable_pwm(){
 }
 
 void enable_pwm(){
-  Timer1_FastPWM_Init();
+  int res = Timer1_FastPWM_Init(configs[selectedConfigIndex].pwmResolution, configs[selectedConfigIndex].pwmPrescaler);
+  if (res){
+    printf("==== ERROR: PWM INIT FAILED! invalid parameter provided config_index=%d ====", selectedConfigIndex);
+    GPIO_Set(&buzzer);
+    _delay_ms(3000);
+    GPIO_Clear(&buzzer);
+    //trigger reset
+    wdt_enable(WDTO_15MS);
+  }
 }
 
 
 //max duty is configured PWM_RESOLUTION
 //note: due to fast-pwm mode pin can never be fully off or on
 // there will still be one off/on cycle at 1023/0 duty
-void Set_PWM_Duty_Cycle(uint16_t duty_cycle)
+void Set_PWM_Duty_Cycle(uint16_t duty_cycle, uint16_t max_dutyCycle)
 {
   //clip to max value
-  if (duty_cycle > PWM_RESOLUTION)
-    duty_cycle = PWM_RESOLUTION;
+  if (duty_cycle > max_dutyCycle)
+    duty_cycle = max_dutyCycle;
 
  // Set duty cycle for OC1A
   OCR1A = duty_cycle;
@@ -162,8 +226,27 @@ void Set_PWM_Duty_Cycle(uint16_t duty_cycle)
 }
 
 
+
+// beep certain count
+void beep(uint8_t count)
+{
+  for (int i = 0; i < count; i++)
+  {
+    GPIO_Set(&buzzer);
+    GPIO_Set(&ledExternal);
+    _delay_ms(60);
+    GPIO_Clear(&buzzer);
+    GPIO_Clear(&ledExternal);
+    _delay_ms(100);
+  }
+}
+
+
 typedef enum {FULL_OFF = 0, FULL_ON, PWM} motorState_t;
 const char* motorState_str[] = {"FULL_OFF", "FULL_ON", "PWM"};
+
+
+
 
 
 //======================
@@ -172,7 +255,7 @@ const char* motorState_str[] = {"FULL_OFF", "FULL_ON", "PWM"};
 int main(void)
 {
   // init PWM
-  Timer1_FastPWM_Init(); // init timer1 in fast PWM mode with 10bit resolution on pin PB1
+  Timer1_FastPWM_Init(configs[selectedConfigIndex].pwmResolution, configs[selectedConfigIndex].pwmPrescaler);
   disable_pwm(); // initially off
 
   // init adc
@@ -182,16 +265,9 @@ int main(void)
   init_gpios();
   GPIO_Set(&fan); //turn off fan initially
 
-  // beep at startup
-  for (int i = 0; i < 3; i++)
-  {
-    GPIO_Set(&buzzer);
-    GPIO_Set(&ledExternal);
-    _delay_ms(60);
-    GPIO_Clear(&buzzer);
-    GPIO_Clear(&ledExternal);
-    _delay_ms(100);
-  }
+  // beep
+  beep(3);
+
   // external led always on
   GPIO_Set(&ledExternal);
 
@@ -200,7 +276,6 @@ int main(void)
   uart_init();
   uart_sendStr("startup finished\n");
   printf("CPU Frequency is %ld Hz\n", F_CPU);
-  printf("PWM Frequency is %d Hz\n", PWM_FREQUENCY);
 
 
   // variables
@@ -211,10 +286,17 @@ int main(void)
   uint32_t time = 0;
   uint32_t timestamp_turnedOn = 0;
   uint32_t timestamp_turnedOff = 0;
+  // edge detection
+  uint8_t switchPrevious = 0;
 
   //==== loop ====
   while (1)
   {
+
+    //load currently selected config
+    ekartConfig_t conf = configs[selectedConfigIndex];
+
+
 
     // read gas pedal
     gasPedalAdc = ADC_ReadChannel(gasPedal.bit);
@@ -256,11 +338,11 @@ int main(void)
       }
       // define duty
       // scale pedal input to pwm value
-      duty = (gasPedalAdc - GAS_PEDAL_MIN) * PWM_RESOLUTION / (GAS_PEDAL_MAX - GAS_PEDAL_MIN);
+      duty = (gasPedalAdc - GAS_PEDAL_MIN) * conf.pwmResolution / (GAS_PEDAL_MAX - GAS_PEDAL_MIN);
 
 
       // update duty
-      Set_PWM_Duty_Cycle(duty);
+      Set_PWM_Duty_Cycle(duty, conf.pwmResolution);
     }
 
 
@@ -273,9 +355,12 @@ int main(void)
     printf(" pedal=%04d/1000",
       (int32_t)(gasPedalAdc - GAS_PEDAL_MIN) * 1000 / (GAS_PEDAL_MAX - GAS_PEDAL_MIN));
 
-    printf(" pwm=%04d/%d", duty, PWM_RESOLUTION);
+    printf(" pwm=%04d/%d", duty, conf.pwmResolution);
     
-    printf(" state='%s'\n", motorState_str[(int)state]);
+    printf(" state='%s'", motorState_str[(int)state]);
+
+    printf("freq=%dHz\n", PWM_FREQUENCY(conf.pwmPrescaler, conf.pwmResolution));
+
 
 
     //=== onboard LED ===
@@ -286,20 +371,38 @@ int main(void)
 
     //=== fan ===
     // note: output is inverted
-    // turn fan on when above threshold
-   // if (duty > FAN_TURN_ON_DUTY)
-   //   GPIO_Clear(&fan);
-   // // fan still on, motor off long enough
-   // else if (time - timestamp_turnedOff) > FAN_TURN_OFF_DELAY_MS )
-   //   GPIO_Set(&fan);
+    // turn fan on when motor on and above thresholds
+    if (state != FULL_OFF && duty > conf.fanTurnOnDuty && time - timestamp_turnedOn > conf.fanTurnOnDelay)
+      GPIO_Clear(&fan); // turn on
+
+    // turn fan off when motor off long enough
+    else if (state == FULL_OFF && (time - timestamp_turnedOff) > conf.fanTurnOffDelay)
+      GPIO_Set(&fan); // turn off
 
     // manual control via switch near emergency stop
-    GPIO_SetLevel(&fan, !(GPIO_Read(&switch2)));
+    // GPIO_SetLevel(&fan, !(GPIO_Read(&switch2)));
+
 
 
     //=== Relay ===
     // on when switch1 is high (currently not connected)
     GPIO_SetLevel(&relay, GPIO_Read(&switch1));
+
+
+
+    //=== cycle through configs ===
+    uint8_t switchNow = GPIO_Read(&switch2);
+    if (switchPrevious == 0 && switchNow == 1) // rising edge
+    {
+      selectedConfigIndex++;
+      if (selectedConfigIndex >= configCount) //rotate back first index
+        selectedConfigIndex = 0;
+      printf("cycled config index to %d", selectedConfigIndex);
+      beep(4);
+      _delay_ms(600);
+      beep(selectedConfigIndex);
+    }
+    switchPrevious = switchNow;
 
 
 
@@ -309,6 +412,10 @@ int main(void)
     GPIO_SetLevel(&buzzer, !(GPIO_Read(&batteryThreshold)));
 
 
+
+    //=== track time since startup ===
+    // (approx since execution is not taken into account, e.g. uart)
+    // TODO: use timer for this
     _delay_ms(10);
     time+=10; //TODO: overflows in 49 days
   }
