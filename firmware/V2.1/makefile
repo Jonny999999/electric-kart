@@ -16,7 +16,7 @@ FORMAT = ihex
 
 # Project files
 PROJECT_PATH = .
-PROJECT_OBJS = main.o usart.o adc.o
+PROJECT_OBJS = main.o usart.o adc.o time.o
 #----------------------------------------------------------
 # Programmer settings
 AVRDUDE_PROGRAMMER = usbasp

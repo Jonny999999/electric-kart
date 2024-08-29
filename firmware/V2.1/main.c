@@ -3,6 +3,7 @@
 #include "adc.h"
 #include "gpio.h"
 #include <avr/wdt.h>
+#include "time.h"
 
 // struct that configures PWM and fan settings
 typedef struct
@@ -37,6 +38,13 @@ ekartConfig_t configs[] = {
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
     },
+        { //488 Hz []
+        .pwmResolution = 255,
+        .pwmPrescaler = 64,
+        .fanTurnOffDelay = 15000,
+        .fanTurnOnDelay = 2000,
+        .fanTurnOnDuty = 10
+    },
       { //977 Hz (V1) []
         .pwmResolution = 1023,
         .pwmPrescaler = 8,
@@ -58,7 +66,7 @@ ekartConfig_t configs[] = {
         .fanTurnOnDelay = 1000,
         .fanTurnOnDuty = 0
     },
-      { //15.6 kHz (note: gets hot fast)
+      { //15.6 kHz (note: too fast in low duty - never off in cycle, gets hot fast)
         .pwmResolution = 511,
         .pwmPrescaler = 1,
         .fanTurnOffDelay = 50000,
@@ -69,7 +77,7 @@ ekartConfig_t configs[] = {
 
 uint8_t configCount = sizeof(configs)/sizeof(ekartConfig_t);
 // default config
-uint8_t selectedConfigIndex = 4;
+uint8_t selectedConfigIndex = 5;
 
 //====================
 //==== PWM-config ====
@@ -267,6 +275,9 @@ int main(void)
   init_gpios();
   GPIO_Set(&fan); //turn off fan initially
 
+  // init Timer+ISR that tracks time in ms for time_ functions
+  time_init();
+
   // beep
   beep(3);
 
@@ -286,7 +297,6 @@ int main(void)
   motorState_t state = FULL_OFF;
   motorState_t statePrev = FULL_OFF;
   uint16_t duty = 0;
-  uint32_t time = 0;
   uint32_t timestamp_turnedOn = 0;
   uint32_t timestamp_turnedOff = 0;
   // edge detection
@@ -317,7 +327,7 @@ int main(void)
       { 
         disable_pwm();
         pwmEnabled = 0;
-        timestamp_turnedOff = time;
+        timestamp_turnedOff = time_get_ms();
       }
       // set pin constantly low = full off
       GPIO_Clear(&pwm);
@@ -341,7 +351,7 @@ int main(void)
       { // re-enable pwm if previously off
         enable_pwm();
         pwmEnabled = 1;
-        timestamp_turnedOn = time;
+        timestamp_turnedOn = time_get_ms();
       }
       // define duty
       // scale pedal input to pwm value
@@ -384,12 +394,12 @@ int main(void)
     //=== fan ===
     // note: output is inverted
     // turn fan on when motor on and above thresholds
-    uint32_t timeOn = time - timestamp_turnedOn;
-    if (state != FULL_OFF &&  (duty >= conf.fanTurnOnDuty) && ((time-timestamp_turnedOn) > conf.fanTurnOnDelay))
+    uint32_t timeOn = time_msPassedSince(timestamp_turnedOn);
+    if (state != FULL_OFF &&  (duty >= conf.fanTurnOnDuty) && ((time_msPassedSince(timestamp_turnedOn)) > conf.fanTurnOnDelay))
       GPIO_Clear(&fan); // turn on
 
     // turn fan off when motor off long enough
-    else if (state == FULL_OFF && ((time - timestamp_turnedOff) > conf.fanTurnOffDelay))
+    else if (state == FULL_OFF && (time_msPassedSince(timestamp_turnedOff) > conf.fanTurnOffDelay))
       GPIO_Set(&fan); // turn off
 
     // printf("time=%d, ", time);
@@ -407,11 +417,11 @@ int main(void)
 
     //==== handle Button ====
     uint8_t switchNow = GPIO_Read(&switch2);
-    uint32_t timePressed = time - timestamp_buttonPressed; //TODO: only calculate this when switchLast is 1 otherwise 0 and reset lock?
+    uint32_t timePressed = time_msPassedSince(timestamp_buttonPressed); //TODO: only calculate this when switchLast is 1 otherwise 0 and reset lock?
 
     if (switchPrevious == 0 && switchNow == 1) // rising edge
     {
-      timestamp_buttonPressed = time;
+      timestamp_buttonPressed = time_get_ms();
     }
 
     else if (switchPrevious == 1 && switchNow == 0) // falling edge
@@ -422,6 +432,12 @@ int main(void)
         selectedConfigIndex++;
         if (selectedConfigIndex >= configCount) // rotate back first index
           selectedConfigIndex = 0;
+        // re-configure pwm immediately when active
+        if (pwmEnabled){
+          Set_PWM_Duty_Cycle(0, conf.pwmResolution); // set to low duty for this cycle
+          enable_pwm(); // re-initialize with new settings
+
+        }
         printf("cycled config index to %d", selectedConfigIndex);
         beep(2);
       }
@@ -474,10 +490,6 @@ int main(void)
 
 
 
-    //=== track time since startup ===
-    // (approx since execution is not taken into account, e.g. uart)
-    // TODO: use timer for this
     _delay_ms(1);
-    time+=60; //TODO: overflows in 49 days
   }
 }
