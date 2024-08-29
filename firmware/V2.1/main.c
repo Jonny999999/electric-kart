@@ -1,9 +1,10 @@
 #include <util/delay.h>
+#include <avr/wdt.h>
 #include "usart.h"
 #include "adc.h"
 #include "gpio.h"
-#include <avr/wdt.h>
 #include "time.h"
+#include "buzzer.h"
 
 // struct that configures PWM and fan settings
 typedef struct
@@ -117,25 +118,27 @@ uint8_t selectedConfigIndex = 5;
 
 #define DUTY_PERCENT_SLOW_MODE 45 //max duty percent in slow mode (long button press)
 
+#define DEBUG_OUTPUT_ENABLED 0
+
 
 
 //===============================
 //===== Configure GPIO Pins =====
 //===============================
 //outputs
-GPIO_Pin relay = { PD3, &PORTD, &DDRD, &PIND };
-GPIO_Pin pwm = {PB1, &PORTB, &DDRB, &PINB};
-GPIO_Pin fan = {PD4, &PORTD, &DDRD, &PIND};
-GPIO_Pin ledOnboard = {PC4, &PORTC, &DDRC, &PINC};
-GPIO_Pin ledExternal = {PB2, &PORTB, &DDRB, &PINB};
-GPIO_Pin buzzer = {PC5, &PORTC, &DDRC, &PINC};
+const GPIO_Pin relay = { PD3, &PORTD, &DDRD, &PIND };
+const GPIO_Pin pwm = {PB1, &PORTB, &DDRB, &PINB};
+const GPIO_Pin fan = {PD4, &PORTD, &DDRD, &PIND};
+const GPIO_Pin ledOnboard = {PC4, &PORTC, &DDRC, &PINC};
+const GPIO_Pin ledExternal = {PB2, &PORTB, &DDRB, &PINB};
+const GPIO_Pin buzzerPin = {PC5, &PORTC, &DDRC, &PINC};
 
 //inputs
-GPIO_Pin switch1 = {PC2, &PORTC, &DDRC, &PINC};
-GPIO_Pin switch2 = {PC3, &PORTC, &DDRC, &PINC};
-GPIO_Pin analog = {PC0, &PORTC, &DDRC, &PINC};
-GPIO_Pin gasPedal = {PC1, &PORTC, &DDRC, &PINC};
-GPIO_Pin batteryThreshold = {PD2, &PORTD, &DDRD, &PIND};
+const GPIO_Pin switch1 = {PC2, &PORTC, &DDRC, &PINC};
+const GPIO_Pin switch2 = {PC3, &PORTC, &DDRC, &PINC};
+const GPIO_Pin analog = {PC0, &PORTC, &DDRC, &PINC};
+const GPIO_Pin gasPedal = {PC1, &PORTC, &DDRC, &PINC};
+const GPIO_Pin batteryThreshold = {PD2, &PORTD, &DDRD, &PIND};
 
 //Initialize Pins (define direction)
 void init_gpios(){
@@ -145,7 +148,7 @@ void init_gpios(){
   GPIO_Init(&fan, 1);
   GPIO_Init(&ledOnboard, 1);
   GPIO_Init(&ledExternal, 1);
-  GPIO_Init(&buzzer, 1);
+  GPIO_Init(&buzzerPin, 1);
   // inputs
   GPIO_Init(&switch1, 0);
   GPIO_Init(&switch2, 0);
@@ -153,6 +156,22 @@ void init_gpios(){
   GPIO_Init(&gasPedal, 0);
   GPIO_Init(&batteryThreshold, 0);
 }
+
+
+// configure buzzer object
+buzzerConfig_t buzzer = {
+    .pin = buzzerPin,
+    .msOn = 60,
+    .msOff = 100,
+    .msLong = 800,
+    .isOn = 0,
+    .countRemainingLong = 0,
+    .countRemaining = 0,
+    .timestamp_turnedOn = 0,
+    .timestamp_turnedOff = 0
+};
+
+
 
 
 
@@ -211,9 +230,9 @@ void enable_pwm(){
   int res = Timer1_FastPWM_Init(configs[selectedConfigIndex].pwmResolution, configs[selectedConfigIndex].pwmPrescaler);
   if (res){
     printf("==== ERROR: PWM INIT FAILED! invalid parameter provided config_index=%d ====", selectedConfigIndex);
-    GPIO_Set(&buzzer);
+    GPIO_Set(&buzzerPin);
     _delay_ms(3000);
-    GPIO_Clear(&buzzer);
+    GPIO_Clear(&buzzerPin);
     //trigger reset
     wdt_enable(WDTO_15MS);
   }
@@ -236,20 +255,6 @@ void Set_PWM_Duty_Cycle(uint16_t duty_cycle, uint16_t max_dutyCycle)
 }
 
 
-
-// beep certain count
-void beep(uint8_t count)
-{
-  for (int i = 0; i < count; i++)
-  {
-    GPIO_Set(&buzzer);
-    GPIO_Set(&ledExternal);
-    _delay_ms(60);
-    GPIO_Clear(&buzzer);
-    GPIO_Clear(&ledExternal);
-    _delay_ms(100);
-  }
-}
 
 
 typedef enum {FULL_OFF = 0, FULL_ON, PWM} motorState_t;
@@ -279,7 +284,7 @@ int main(void)
   time_init();
 
   // beep
-  beep(3);
+  buzzer_beepWait(&buzzer, 3);
 
   // external led always on
   GPIO_Set(&ledExternal);
@@ -309,6 +314,9 @@ int main(void)
   //==== loop ====
   while (1)
   {
+
+    // handle buzzer (handle beeping without blocking the loop)
+    buzzer_handle(&buzzer);
 
     //load currently selected config
     ekartConfig_t conf = configs[selectedConfigIndex];
@@ -366,6 +374,7 @@ int main(void)
 
     //=== logging ===
     // debug output via UART
+    #if DEBUG_OUTPUT_ENABLED == 1
     //note: for some reason wrong values are printed when printing multiple variables in on printf?!
     printf("adc=%04d", gasPedalAdc); 
 
@@ -378,6 +387,8 @@ int main(void)
 
     printf("freq=%dHz\n", PWM_FREQUENCY(conf.pwmPrescaler, conf.pwmResolution));
 
+    #endif
+
 
 
     //=== onboard LED ===
@@ -386,8 +397,11 @@ int main(void)
 
 
     //=== external LED ===
-    // always on except its blinked elsewhere
-    GPIO_Set(&ledExternal);
+    // always on except when buzzer is on (also have optical notification)
+    if (GPIO_Read(&buzzerPin) == 0)
+      GPIO_Clear(&ledExternal);
+    else
+      GPIO_Set(&ledExternal);
 
 
 
@@ -439,7 +453,7 @@ int main(void)
 
         }
         printf("cycled config index to %d", selectedConfigIndex);
-        beep(2);
+        buzzer_beep(&buzzer, 2);
       }
     }
 
@@ -449,16 +463,12 @@ int main(void)
       if (maxDutyPercent != 100) // enter normal mode (full speed)
       {
         maxDutyPercent = 100;
-        GPIO_Set(&buzzer);
-        _delay_ms(200);
-        GPIO_Clear(&buzzer);
+        buzzer_beepLong(&buzzer, 1);
       }
       else  //enter slow mode
       {
         maxDutyPercent = DUTY_PERCENT_SLOW_MODE;
-        GPIO_Set(&buzzer);
-        _delay_ms(1500);
-        GPIO_Clear(&buzzer);
+        buzzer_beepLong(&buzzer, 2);
       }
       lock = 1; // prevent multiple runs while still pressed
     }
@@ -480,12 +490,9 @@ int main(void)
 
     //when below voltage threshold: beep every time when pedal gets released
     if (statePrev == PWM && state == FULL_OFF && !(GPIO_Read(&batteryThreshold))) // pedal just fully released and battery low
-    {
-      GPIO_Set(&buzzer);
-      _delay_ms(800);
-      GPIO_Clear(&buzzer);
-    }
-    // update last state
+      buzzer_beepLong(&buzzer, 1);
+
+    // update last motor state
     statePrev = state;
 
 
