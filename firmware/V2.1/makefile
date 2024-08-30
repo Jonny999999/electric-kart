@@ -16,7 +16,7 @@ FORMAT = ihex
 
 # Project files
 PROJECT_PATH = .
-PROJECT_OBJS = main.o gpio.o usart.o adc.o time.o buzzer.o
+PROJECT_OBJS = main.o gpio.o usart.o adc.o time.o buzzer.o pwm.o
 #----------------------------------------------------------
 # Programmer settings
 AVRDUDE_PROGRAMMER = usbasp
