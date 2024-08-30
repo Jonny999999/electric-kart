@@ -44,6 +44,9 @@ typedef struct
   // Possible values: 1, 8, 64, 256, 1024
   uint16_t pwmPrescaler;
 
+  // switch to default config when motor is continuously on longer than that (prevent overheating)
+  uint32_t maxTimeOnContinuous;
+
   uint32_t fanTurnOffDelay;
   uint32_t fanTurnOnDelay;
   uint32_t fanTurnOnDuty;
@@ -55,6 +58,7 @@ ekartConfig_t configs[] = {
       { //61 Hz []
         .pwmResolution = 511,
         .pwmPrescaler = 256,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 10000,
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
@@ -62,6 +66,7 @@ ekartConfig_t configs[] = {
       { //122 Hz (V1) []
         .pwmResolution = 1023,
         .pwmPrescaler = 64,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 10000,
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
@@ -69,6 +74,7 @@ ekartConfig_t configs[] = {
         { //244 Hz
         .pwmResolution = 511,
         .pwmPrescaler = 64,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 15000,
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
@@ -76,6 +82,7 @@ ekartConfig_t configs[] = {
         { //488 Hz []
         .pwmResolution = 255,
         .pwmPrescaler = 64,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 15000,
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
@@ -83,6 +90,7 @@ ekartConfig_t configs[] = {
       { //977 Hz []
         .pwmResolution = 1023,
         .pwmPrescaler = 8,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 20000,
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
@@ -90,6 +98,7 @@ ekartConfig_t configs[] = {
       { //1.9 kHz []
         .pwmResolution = 511,
         .pwmPrescaler = 8,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 20000,
         .fanTurnOnDelay = 2000,
         .fanTurnOnDuty = 10
@@ -97,6 +106,7 @@ ekartConfig_t configs[] = {
       { //3.9 kHz []
         .pwmResolution = 255,
         .pwmPrescaler = 8,
+        .maxTimeOnContinuous = 0,
         .fanTurnOffDelay = 20000,
         .fanTurnOnDelay = 1000,
         .fanTurnOnDuty = 0
@@ -104,6 +114,7 @@ ekartConfig_t configs[] = {
       { //7.8 kHz (default)
         .pwmResolution = 1023,
         .pwmPrescaler = 1,
+        .maxTimeOnContinuous = 15000,
         .fanTurnOffDelay = 20000,
         .fanTurnOnDelay = 1000,
         .fanTurnOnDuty = 0
@@ -111,6 +122,7 @@ ekartConfig_t configs[] = {
       { //15.6 kHz (note: too fast in low duty - never off in cycle, gets hot fast)
         .pwmResolution = 511,
         .pwmPrescaler = 1,
+        .maxTimeOnContinuous = 6000,
         .fanTurnOffDelay = 50000,
         .fanTurnOnDelay = 500,
         .fanTurnOnDuty = 0
@@ -119,7 +131,8 @@ ekartConfig_t configs[] = {
 
 uint8_t configCount = sizeof(configs)/sizeof(ekartConfig_t);
 // default config
-uint8_t selectedConfigIndex = 1; // <== set default config
+#define DEFAULT_CONFIG_INDEX 1
+uint8_t selectedConfigIndex = DEFAULT_CONFIG_INDEX; // <== set default config
 
 
 
@@ -393,8 +406,8 @@ int main(void)
         if (pwmEnabled){
           pwm_setDutyCycle(0); // set to low duty for this cycle
           emablePwmWithConfig(); // re-initialize with new settings
-
         }
+        timestamp_turnedOn = time_get_ms(); // reset motor on-time (for config maxOnTime)
         printf("cycled config index to %d", selectedConfigIndex);
         buzzer_beep(&buzzer, 2);
       }
@@ -423,7 +436,18 @@ int main(void)
     // update previous switch state
     switchPrevious = switchNow;
 
- 
+
+    //=== handle config auto-exit condition ===
+    // switch config in case time restriction is configured and exceeded
+    if (conf.maxTimeOnContinuous > 0 && state != FULL_OFF && (time_msPassedSince(timestamp_turnedOn) > conf.maxTimeOnContinuous))
+    {
+      selectedConfigIndex = DEFAULT_CONFIG_INDEX;
+      // re-configure pwm immediately when active
+      pwm_setDutyCycle(0);   // set to low duty for this cycle
+      emablePwmWithConfig(); // re-initialize with new settings
+      buzzer_beepLong(&buzzer, 2);
+    }
+
 
     //=== Voltage-Threshold ===
     //beep when battery below voltage threshold (opamp+potentiometer)
