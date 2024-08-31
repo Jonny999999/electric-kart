@@ -53,7 +53,7 @@ typedef struct
 } ekartConfig_t;
 
 
-// define multiple config presets, those can be switched between / selected at runtime
+// define multiple config presets, those can be switched between / selected at runtime with the button
 ekartConfig_t configs[] = {
       { //61 Hz []
         .pwmResolution = 511,
@@ -131,7 +131,7 @@ ekartConfig_t configs[] = {
 
 uint8_t configCount = sizeof(configs)/sizeof(ekartConfig_t);
 // default config
-#define DEFAULT_CONFIG_INDEX 1
+#define DEFAULT_CONFIG_INDEX 2 // = 244Hz
 uint8_t selectedConfigIndex = DEFAULT_CONFIG_INDEX; // <== set default config
 
 
@@ -145,6 +145,9 @@ uint8_t selectedConfigIndex = DEFAULT_CONFIG_INDEX; // <== set default config
 #define DUTY_PERCENT_SLOW_MODE 45 //max duty percent in slow mode (long button press)
 
 #define DEBUG_OUTPUT_ENABLED 0 // when set to 1: output e.g. adc, duty, gaspedal... via uart
+
+#define TIMEOUT_NOTIFY_INACTIVITY (uint32_t)5*60*60*1000 //5h (notify "forgot to turn off")
+#define INACTIVITY_CHECK_INTERVAL (uint32_t)45*1000 //interval buzzer beeps when idle too long
 
 
 
@@ -160,8 +163,8 @@ const GPIO_Pin ledExternal = {PB2, &PORTB, &DDRB, &PINB};
 const GPIO_Pin buzzerPin = {PC5, &PORTC, &DDRC, &PINC};
 
 //inputs
-const GPIO_Pin switch1 = {PC2, &PORTC, &DDRC, &PINC};
-const GPIO_Pin switch2 = {PC3, &PORTC, &DDRC, &PINC};
+const GPIO_Pin toggleSwitch = {PC2, &PORTC, &DDRC, &PINC};
+const GPIO_Pin button = {PC3, &PORTC, &DDRC, &PINC};
 const GPIO_Pin analog = {PC0, &PORTC, &DDRC, &PINC};
 const GPIO_Pin gasPedal = {PC1, &PORTC, &DDRC, &PINC};
 const GPIO_Pin batteryThreshold = {PD2, &PORTD, &DDRD, &PIND};
@@ -176,8 +179,8 @@ void init_gpios(){
   GPIO_Init(&ledExternal, 1);
   GPIO_Init(&buzzerPin, 1);
   // inputs
-  GPIO_Init(&switch1, 0);
-  GPIO_Init(&switch2, 0);
+  GPIO_Init(&toggleSwitch, 0);
+  GPIO_Init(&button, 0);
   GPIO_Init(&analog, 0);
   GPIO_Init(&gasPedal, 0);
   GPIO_Init(&batteryThreshold, 0);
@@ -255,7 +258,8 @@ int main(void)
   printf("CPU Frequency is %ld Hz\n", F_CPU);
 
 
-  // variables
+  //==== variables ====
+  // motor:
   uint32_t gasPedalAdc;
   uint8_t pwmEnabled = 0;
   motorState_t state = FULL_OFF;
@@ -263,12 +267,16 @@ int main(void)
   uint16_t duty = 0;
   uint32_t timestamp_turnedOn = 0;
   uint32_t timestamp_turnedOff = 0;
-  // edge detection
-  uint8_t switchPrevious = 0;
+  // edge detection:
+  uint8_t buttonPrevious = 0;
   uint32_t timestamp_buttonPressed = 0;
-
+  // inactivity beep:
+  uint32_t timestamp_lastActivity = 0;
+  uint32_t timestamp_lastInactivityCheck = 0;
+  // slow mode:
   uint16_t maxDutyPercent = 100;
   uint8_t lock = 0;
+
 
   //==== loop ====
   while (1)
@@ -376,25 +384,25 @@ int main(void)
     // printf("turnedon=%d", timestamp_turnedOn);
     // printf("timeon=%d\n", timeOn);
     //  manual control via switch near emergency stop
-    //  GPIO_SetLevel(&fan, !(GPIO_Read(&switch2)));
+    //  GPIO_SetLevel(&fan, !(GPIO_Read(&button)));
 
 
 
     //=== Switch, Relay ===
-    // on when switch1 is high (currently not connected)
-    GPIO_SetLevel(&relay, GPIO_Read(&switch1));
+    // on when switch is high (currently not connected)
+    GPIO_SetLevel(&relay, GPIO_Read(&toggleSwitch));
 
 
     //==== handle Button ====
-    uint8_t switchNow = GPIO_Read(&switch2);
+    uint8_t buttonNow = GPIO_Read(&button);
     uint32_t timePressed = time_msPassedSince(timestamp_buttonPressed); //TODO: only calculate this when switchLast is 1 otherwise 0 and reset lock?
 
-    if (switchPrevious == 0 && switchNow == 1) // rising edge
+    if (buttonPrevious == 0 && buttonNow == 1) // rising edge
     {
       timestamp_buttonPressed = time_get_ms();
     }
 
-    else if (switchPrevious == 1 && switchNow == 0) // falling edge
+    else if (buttonPrevious == 1 && buttonNow == 0) // falling edge
     {
       if (timePressed < 1000) //short press
       {
@@ -413,7 +421,7 @@ int main(void)
       }
     }
 
-    else if ((switchNow == 1 && timePressed > 1000) && !lock) //long press
+    else if ((buttonNow == 1 && timePressed > 1000) && !lock) //long press
     {
       //--- toggle slow mode ---
       if (maxDutyPercent != 100) // enter normal mode (full speed)
@@ -428,13 +436,13 @@ int main(void)
       }
       lock = 1; // prevent multiple runs while still pressed
     }
-    else if (switchNow == 0) // released
+    else if (buttonNow == 0) // released
     {
       lock = 0; // reset long pressed lock
     }
 
     // update previous switch state
-    switchPrevious = switchNow;
+    buttonPrevious = buttonNow;
 
 
     //=== handle config auto-exit condition ===
@@ -443,8 +451,11 @@ int main(void)
     {
       selectedConfigIndex = DEFAULT_CONFIG_INDEX;
       // re-configure pwm immediately when active
-      pwm_setDutyCycle(0);   // set to low duty for this cycle
-      emablePwmWithConfig(); // re-initialize with new settings
+      if (pwmEnabled)
+      {
+        pwm_setDutyCycle(0);   // set to low duty for this cycle
+        emablePwmWithConfig(); // re-initialize with new settings
+      }
       buzzer_beepLong(&buzzer, 2);
     }
 
@@ -458,11 +469,22 @@ int main(void)
     if (statePrev == PWM && state == FULL_OFF && !(GPIO_Read(&batteryThreshold))) // pedal just fully released and battery low
       buzzer_beepLong(&buzzer, 1);
 
+
+    //=== inactivity check ===
+    // track last activity
+    if (state == FULL_ON && statePrev != FULL_ON) // motor just changed to full-on (counts as activity)
+      timestamp_lastActivity = time_get_ms();
+    // repeatedly check and beep if inactivity threshold is exceeded
+    // TODO put this check in a slow loop
+    if ((time_msPassedSince(timestamp_lastInactivityCheck) > INACTIVITY_CHECK_INTERVAL) //check is due
+    && (time_msPassedSince(timestamp_lastActivity) > TIMEOUT_NOTIFY_INACTIVITY)){ // inactive long enough
+      buzzer_beepLong(&buzzer, 2);
+      timestamp_lastInactivityCheck = time_get_ms();
+    }
+
+
     // update last motor state
     statePrev = state;
-
-
-
     _delay_ms(1);
   }
 }
