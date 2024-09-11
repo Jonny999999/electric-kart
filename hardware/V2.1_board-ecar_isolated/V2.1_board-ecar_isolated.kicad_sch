@@ -11113,7 +11113,7 @@
 	)
 	(text "Input voltage range: \n20V to 35V"
 		(exclude_from_sim no)
-		(at 27.94 38.862 0)
+		(at 26.162 37.084 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -11156,6 +11156,17 @@
 			)
 		)
 		(uuid "7ec25d5e-87dc-4abc-a4c3-856a5750f07b")
+	)
+	(text "low = fan on\nhigh = fan off"
+		(exclude_from_sim no)
+		(at 243.84 132.588 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "844f1f70-696e-4c0c-b39e-330264bb7735")
 	)
 	(text "2x Digital input\n(Switches to 5V)"
 		(exclude_from_sim no)
@@ -18353,7 +18364,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "IRFZ24N"
+		(property "Value" "IRF3205"
 			(at 284.988 151.384 0)
 			(effects
 				(font
@@ -24507,7 +24518,7 @@
 				)
 			)
 		)
-		(property "Value" "nopop"
+		(property "Value" "10"
 			(at 207.0354 137.3378 90)
 			(effects
 				(font
