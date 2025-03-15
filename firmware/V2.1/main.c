@@ -146,8 +146,9 @@ uint8_t selectedConfigIndex = DEFAULT_CONFIG_INDEX; // <== set default config
 
 #define DEBUG_OUTPUT_ENABLED 0 // when set to 1: output e.g. adc, duty, gaspedal... via uart
 
-#define TIMEOUT_NOTIFY_INACTIVITY (uint32_t)5*60*60*1000 //5h (notify "forgot to turn off")
-#define INACTIVITY_CHECK_INTERVAL (uint32_t)45*1000 //interval buzzer beeps when idle too long
+#define TIMEOUT_NOTIFY_INACTIVITY (uint32_t)5*60*60*1000 //5h - (notify "forgot to turn off")
+#define INACTIVITY_CHECK_INTERVAL (uint32_t)2*60*1000 //2min - interval buzzer beeps when idle too long
+#define LOW_VOLTAGE_CHECK_INTERVAL (uint32_t)3*60*1000 //3min - interval buzzer beeps when battery voltage is below threshold (hardware comparator)
 
 
 
@@ -273,6 +274,8 @@ int main(void)
   // inactivity beep:
   uint32_t timestamp_lastActivity = 0;
   uint32_t timestamp_lastInactivityCheck = 0;
+  // low voltage beep:
+  uint32_t timestamp_lastVoltageCheck = 0;
   // slow mode:
   uint16_t maxDutyPercent = 100;
   uint8_t lock = 0;
@@ -465,9 +468,17 @@ int main(void)
     //pass through batt threshold signal to buzzer (testing):
     //GPIO_SetLevel(&buzzer, !(GPIO_Read(&batteryThreshold)));
 
-    //when below voltage threshold: beep every time when pedal gets released
+    // beep every time when pedal gets released when below threshold
     if (statePrev == PWM && state == FULL_OFF && !(GPIO_Read(&batteryThreshold))) // pedal just fully released and battery low
       buzzer_beepLong(&buzzer, 1);
+
+    // repeatedly check for low voltage in fixed interval // TODO move this check to slow loop?
+    if ((time_msPassedSince(timestamp_lastVoltageCheck) > LOW_VOLTAGE_CHECK_INTERVAL)) // check is due
+    {
+      timestamp_lastVoltageCheck = time_get_ms(); // reset check interval
+      if (!(GPIO_Read(&batteryThreshold)))        // battery low
+        buzzer_beep(&buzzer, 2);
+    }
 
 
     //=== inactivity check ===
@@ -476,11 +487,15 @@ int main(void)
       timestamp_lastActivity = time_get_ms();
     // repeatedly check and beep if inactivity threshold is exceeded
     // TODO put this check in a slow loop
-    if ((time_msPassedSince(timestamp_lastInactivityCheck) > INACTIVITY_CHECK_INTERVAL) //check is due
-    && (time_msPassedSince(timestamp_lastActivity) > TIMEOUT_NOTIFY_INACTIVITY)){ // inactive long enough
-      buzzer_beepLong(&buzzer, 2);
-      timestamp_lastInactivityCheck = time_get_ms();
+    if ((time_msPassedSince(timestamp_lastInactivityCheck) > INACTIVITY_CHECK_INTERVAL)) //check is due
+    {
+      timestamp_lastInactivityCheck = time_get_ms(); // reset check interval
+      if (time_msPassedSince(timestamp_lastActivity) > TIMEOUT_NOTIFY_INACTIVITY){ // inactive long enough
+        buzzer_beepLong(&buzzer, 2);
+      }
     }
+    
+
 
 
     // update last motor state
